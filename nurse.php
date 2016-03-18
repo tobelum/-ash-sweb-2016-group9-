@@ -1,6 +1,5 @@
 <?php
-/**
-*/
+
 include_once("adb.php");
 /**
 *Users  class
@@ -15,10 +14,7 @@ class nurse extends adb{
 	*Checks if a patient exists in patient's table
 	*@param int pid Patient's id
 	*@return boolean returns true if patient existst in patient's table or false 
-	*/
-
-	
-	
+	*/	
 	function patientExists($p_id) {
 		$query = "SELECT * FROM patients WHERE patient_id = '$p_id'";
 		return $this->query($query);
