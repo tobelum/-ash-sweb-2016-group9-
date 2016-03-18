@@ -48,7 +48,6 @@ class adb{
 	*@return array one record
 	*/
 	function fetch(){
-		//Complete this funtion to fetch from the $this->result
 		if($this->result==null){
 			return false;
 		}

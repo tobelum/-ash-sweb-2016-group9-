@@ -8,7 +8,7 @@ include_once("adb.php");
 class diagnosis extends adb{
 	function diagnosis(){
 	}
-	/*
+	/**
 	*Views diagnoses corresponding to a patient's id
 	*@param int diagnosis_id diagnosis id
 	*@param timestamp diagnosedate date
@@ -30,10 +30,9 @@ class diagnosis extends adb{
 	*/
 	function getDiagnosis($filter=false){
 		$strQuery="select diagnosis_id, diagnosedate,temp,sp02,pulse,bloodPressure,complaints,treatment,remark,specificPatient_id
-from diagnosis";
+					from diagnosis";
 		if($filter!=false){
 			$strQuery=$strQuery . " where $filter";
-
 		}
 		return $this->query($strQuery);
 	}

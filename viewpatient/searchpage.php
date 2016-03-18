@@ -38,26 +38,88 @@
 <?php
 
 
-	//1) Create object of users class
+	//1) Create object of patients and diagnosis classes
+	include_once ("patients.php");
 	include_once ("diagnosis.php");
-	$obj=new diagnosis();
+	$obj=new patients();
+	$sub= new diagnosis();
 
 	
-	//2) Call the object's getUsers method and check for error
-	
-	if(!$obj->getDiagnosis()){
-		echo "Error getting diagnosis";
-		return;
-	}
+	//2) Call the objects' getPatients and searchDiagnosis methods and check for error
 
-	else if(isset($_REQUEST['txtSearch'])){
-		$r=$_REQUEST['txtSearch'];
-		$obj->searchDiagnosis($r);
+		if(isset($_REQUEST['txtSearch'])){
+			$r=$_REQUEST['txtSearch'];
+			$sub->searchDiagnosis($r);
+
+			$col1 = "orange";
+			echo "<table border='1'><tr bgcolor=$col1>
+										<td>Diagnosis ID</td>
+										<td>Date</td>
+										<td>Temperature</td>
+										<td>SP02</td>
+										<td>Pulse</td>
+										<td>Blood Pressure</td>
+										<td>Complaints</td>
+										<td>Treatments Given</td>
+										<td>Remarks of Nurse</td>
+										<td>Patient ID</td>
+									</tr>";
+			while($row=$sub->fetch()){
+				if(!$row){
+				echo "Invalid Patient ID";
+				}
+					$col2="yellow";
+							echo "<tr bgcolor=$col2>
+										<td>{$row['diagnosis_id']}</td>
+										<td>{$row['diagnosedate']}</td>
+										<td>{$row['temp']}</td>
+										<td>{$row['sp02']}</td>
+										<td>{$row['pulse']}</td>
+										<td>{$row['bloodPressure']}</td>
+										<td>{$row['complaints']}</td>
+										<td>{$row['treatment']}</td>
+										<td>{$row['remark']}</td>
+										<td>{$row['specificPatient_id']}</td>
+									</tr>";
+		}
 
 
-	}else{
-		$obj->getDiagnosis();
+		}else{
+			$obj->getPatients();
 
+				$col1 = "orange";
+				echo "<table border='1'><tr bgcolor=$col1>
+											<td>Patient ID</td>
+											<td>Username</td>
+											<td>First Name</td>
+											<td>Last Name</td>
+											<td>Gender</td>
+											<td>Nationality</td>
+											<td>Insurance Type</td>
+											<td>Date of Birth</td>
+											<td>Group Name</td>
+											<td>Phone Number</td>
+											<td>Email</td>
+										</tr>";
+				while($row=$obj->fetch()){
+				if(!$row){
+				echo "Invalid Patient ID";
+				}
+					$col2="yellow";
+					echo "<tr bgcolor=$col2>
+								<td>{$row['patient_id']}</td>
+								<td>{$row['username']}</td>
+								<td>{$row['firstname']}</td>
+								<td>{$row['lastname']}</td>
+								<td>{$row['gender']}</td>
+								<td>{$row['nationality']}</td>
+								<td>{$row['insurance_type']}</td>
+								<td>{$row['dob']}</td>
+								<td>{$row['group_name']}</td>
+								<td>{$row['phone_number']}</td>
+								<td>{$row['email']}</td>
+							</tr>";
+		}
 
 	}
 
@@ -65,35 +127,7 @@
 
 	
 	//3) show the result
-	$col1 = "orange";
-	echo "<table border='1'><tr bgcolor=$col1>
-					<td>Diagnosis ID</td>
-					<td>Date</td>
-					<td>Temperature</td>
-					<td>SP02</td>
-					<td>Pulse</td>
-					<td>Blood Pressure</td>
-					<td>Complaints</td>
-					<td>Treatments Given</td>
-					<td>Remarks of Nurse</td>
-					<td>Patient ID</td>
-				</tr>";
-	while($row=$obj->fetch()){
 
-		$col2="yellow";
-		echo "<tr bgcolor=$col2>
-				<td>{$row['diagnosis_id']}</td>
-				<td>{$row['diagnosedate']}</td>
-				<td>{$row['temp']}</td>
-				<td>{$row['sp02']}</td>
-				<td>{$row['pulse']}</td>
-				<td>{$row['bloodPressure']}</td>
-				<td>{$row['complaints']}</td>
-				<td>{$row['treatment']}</td>
-				<td>{$row['remark']}</td>
-				<td>{$row['specificPatient_id']}</td>
-			</tr>";
-		}
 	
 	
 	
