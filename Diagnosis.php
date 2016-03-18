@@ -1,6 +1,6 @@
 <html>
-<title> Add New Diagnosis </title>
-<head> </head>
+
+<head> <title> Add New Diagnosis </title> </head>
 <body>
 <h1> Enter Diagnosis Detail and click Add to Submit</h1>
 <form method = "post", action = "">
