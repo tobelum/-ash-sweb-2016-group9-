@@ -47,3 +47,36 @@
                            
             </body>
         </html>
+        
+         <?php
+    include_once("addPatient.php");
+    
+	if(!isset($_REQUEST['patientID'])){
+		exit();		
+	}
+    $obj= new addPatient();
+	print_r($_REQUEST);
+    $patientID=$_REQUEST['patientID'];
+	$username=$_REQUEST['username'];
+	$firstname=$_REQUEST['firstname'];
+    $lastname=$_REQUEST['lastname'];
+    $gender=$_REQUEST['gender'];
+    $nationality=$_REQUEST['nationality'];
+    $insurance=$_REQUEST['insuranceType'];
+    $dob=$_REQUEST['dob'];
+    $group=$_REQUEST['patientgroup'];
+    $phone=$_REQUEST['phoneNum'];
+    $email=$_REQUEST['email'];
+
+	
+	$result = $obj-> newPatient($patientID,$username,$firstname,$lastname,$gender,$nationality,$insurance,$dob,$group,$phone,$email);
+	//echo $strQuery;
+	if($result != false){
+		echo "Data Added";
+	}else{
+		echo "Error while adding data";
+	}
+	
+	
+?>
+
