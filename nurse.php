@@ -42,7 +42,7 @@ class nurse extends adb{
 	function addNewDiagnosis($did,$date,$temp,$sp,$pulse,$bp,$com,$treat,$rmk,$p_id) {
 		$strQuery = "INSERT INTO diagnosis set
 					diagnosis_id = '$did',
-					date = '$date',
+					diagnosedate = '$date',
 					temp = '$temp',
 					spO2 = '$sp',
 					pulse = '$pulse',
