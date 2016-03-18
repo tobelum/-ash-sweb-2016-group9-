@@ -26,10 +26,11 @@ if (isset($_REQUEST['id'])) {
 	//print_r($data);
 	
 	if ($data == false) {
-		echo "nope";
+		echo "Please Enter a Valid ID";
+		
 		
 	}
-	else {echo "success"; exit();}
+	else {header("Location: Diagnosis.php");}
 }
 
 ?>
