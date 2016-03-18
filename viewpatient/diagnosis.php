@@ -23,6 +23,7 @@ class diagnosis extends adb{
 	*/
 			
 	
+	
 	/**
 	*gets patient's records based on the filter
 	*@param string mixed condition to filter. If  false, then filter will not be applied

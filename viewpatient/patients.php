@@ -24,6 +24,7 @@ class patients extends adb{
 	*@return boolean returns true if successful or false 
 	*/
 	
+	
 	/**
 	*gets patients' records based on the filter
 	*@param string mixed condition to filter. If  false, then filter will not be applied

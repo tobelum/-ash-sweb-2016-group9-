@@ -38,6 +38,7 @@
 <?php
 
 
+
 	//1) Create object of patients and diagnosis classes
 	include_once ("patients.php");
 	include_once ("diagnosis.php");
