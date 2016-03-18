@@ -28,3 +28,17 @@ return $this->query ($strQuery);
 
 }
 
+/*$obj = new addPatient ();
+
+$result = $obj->addPatient('60702017','jesse.akosa','jesse','akosa','male','ghanaian','nhis',1993-03-02,1,'0279507667');
+
+if ($result = false){
+echo "add unsuccessful";
+}
+
+else {
+echo "add successful";
+}
+*/
+?>
+
