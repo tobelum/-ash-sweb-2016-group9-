@@ -3,7 +3,10 @@
 
      class patients extends adb{
 
-
+/**  
+     *Function search patients
+     *@param int $filter contains the Patient ID
+*/
           function searchPatients($text=false){
           $filter=false;
           if($text!=false){
