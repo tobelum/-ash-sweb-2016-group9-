@@ -28,9 +28,9 @@
 				} 
 			}
 		}else{ // Mysql_num_row is counting table row
-		echo 'You must login with your username and password. <a href="loginPage.php">Go to loginPage </a>';
+			echo 'You must login with your username and password. <a href="loginPage.php">Go to loginPage </a>';
 		//<a href="logout.php"> Log out </a>
-		
+		}
 	}
-	}
+	
 ?>

@@ -17,9 +17,10 @@
 			</tr>
 			<tr>
 				<td id="mainnav">
-					<div class="menuitem"><a href="http://www.google.com"> Search Info </a></div>
-					<div class="menuitem"><a href="http://www.ashesi.edu.gh"> Ashesi Website</a></div>
-					<div class="menuitem"><a href="http://www.w3schools.com"> Health News</a></div>
+					<div class="menuitem"><a href="http://mail.office365.com/"> Send us an email </a></div>
+					<div class="menuitem"><a href="http://www.ashesi.edu.gh/student-life-5/health-and-wellbeing.html">
+						More info</a></div>
+					<div class="menuitem"><a href="http://www.who.int/topics/en/"> Health News</a></div>
 				</td>
 				<td id="content">
 					<div id="divPageMenu">
