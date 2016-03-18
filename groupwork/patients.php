@@ -19,7 +19,10 @@
 // select username,firstname,lastname,gender,nationality,insurance_type,dob,group_name,phone_number,
 //             email from patients left join patientgroup on patients.group_name=patientgroup.groupID where patient_id = '84082017'
 
-
+/**  
+     *Function get patients
+     *@param int $filter contains the Patient ID abd retrieves the information from the database
+*/
      	function getPatients($filter=false){
 
      	  $strQuery = "select patient_id, username,firstname,lastname,gender,nationality,insurance_type,dob,group_name,phone_number,
