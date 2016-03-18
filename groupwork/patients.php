@@ -34,7 +34,11 @@
                return $this->query($strQuery);
      	}
 
-
+/**  
+     *Function edit Patient
+     *@param int $filter contains $patientID,$username,$firstname,$lastname,$gender,$nationality,$insurance_type,
+     *       $dob,$group,$phone_number,$email which allow the user to change these details the application.
+*/
 
           function editPatient($patientID,$username,$firstname,$lastname,$gender,$nationality,$insurance_type,
                $dob,$group,$phone_number,$email){
