@@ -38,6 +38,66 @@
 <?php
 
 
+	//1) Create object of users class
+	include_once ("diagnosis.php");
+	$obj=new diagnosis();
+
+	
+	//2) Call the object's getUsers method and check for error
+	
+	if(!$obj->getDiagnosis()){
+		echo "Error getting diagnosis";
+		return;
+	}
+
+	else if(isset($_REQUEST['txtSearch'])){
+		$r=$_REQUEST['txtSearch'];
+		$obj->searchDiagnosis($r);
+
+
+	}else{
+		$obj->getDiagnosis();
+
+
+	}
+
+	
+
+	
+	//3) show the result
+	$col1 = "orange";
+	echo "<table border='1'><tr bgcolor=$col1>
+					<td>Diagnosis ID</td>
+					<td>Date</td>
+					<td>Temperature</td>
+					<td>SP02</td>
+					<td>Pulse</td>
+					<td>Blood Pressure</td>
+					<td>Complaints</td>
+					<td>Treatments Given</td>
+					<td>Remarks of Nurse</td>
+					<td>Patient ID</td>
+				</tr>";
+	while($row=$obj->fetch()){
+
+		$col2="yellow";
+		echo "<tr bgcolor=$col2>
+				<td>{$row['diagnosis_id']}</td>
+				<td>{$row['diagnosedate']}</td>
+				<td>{$row['temp']}</td>
+				<td>{$row['sp02']}</td>
+				<td>{$row['pulse']}</td>
+				<td>{$row['bloodPressure']}</td>
+				<td>{$row['complaints']}</td>
+				<td>{$row['treatment']}</td>
+				<td>{$row['remark']}</td>
+				<td>{$row['specificPatient_id']}</td>
+			</tr>";
+		}
+	
+	
+	
+
 
 ?>
 

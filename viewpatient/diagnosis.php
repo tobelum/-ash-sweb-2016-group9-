@@ -11,7 +11,7 @@ class diagnosis extends adb{
 	/*
 	*Views diagnoses corresponding to a patient's id
 	*@param int diagnosis_id diagnosis id
-	*@param timestamp date date
+	*@param timestamp diagnosedate date
 	*@param string sp02 sp02
 	*@param int pulse pulse
 	*@param int bloodPressure blood pressure
@@ -29,10 +29,10 @@ class diagnosis extends adb{
 	*@return boolean true if successful, else false
 	*/
 	function getDiagnosis($filter=false){
-		$strQuery="select diagnosis_id, date,temp,sp02,pulse,bloodPressure,complaints,treatments,remarks,specificPatient_id";
+		$strQuery="select diagnosis_id, diagnosedate,temp,sp02,pulse,bloodPressure,complaints,treatment,remark,specificPatient_id
+from diagnosis";
 		if($filter!=false){
 			$strQuery=$strQuery . " where $filter";
-			
 
 		}
 		return $this->query($strQuery);
