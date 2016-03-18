@@ -17,28 +17,7 @@
                     <div>Nationality: <input type="text" name="nationality" </div><br></br>
                     <div>Insurance Type: <input type="text" name="insuranceType" </div><br></br>
                     <div>Date Of Birth: <input type="text" name="dob" </div> <br></br>
-                     <div>Group Type: <select name="patientgroup">
-    <?php
-        //a call to the class
-        include_once("patientGroups.php");
-        $usergroup= new patientGroup();
-        $result=$usergroup->getAllPatientGroups();
-        //echo $strQuery;
-        if($result==false){
-            //
-            echo "result is false";
-        }else{
-            while($row=$usergroup->fetch()){
-                echo "<option value='{$row['groupID']}'>{$row['groupName']}</option>";
-            }
-        }
-
-
-
-    ?>				
-                            </select>
-                            </div><br></br>
-                    <div>Phone Number: <input type="text" name="phoneNum" </div><br></br>
+<div>Phone Number: <input type="text" name="phoneNum" </div><br></br>
                         <div>Email: <input type="text" name="email" </div> <br></br>
 
 
