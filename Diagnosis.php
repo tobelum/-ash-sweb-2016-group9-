@@ -1,12 +1,12 @@
 <html>
-
 <head> <title> Add New Diagnosis </title> </head>
-<body>
-<h1> Enter Diagnosis Detail and click Add to Submit</h1>
+<body style = "background-color:lightgrey">
+<h1 style = "background-color:brown"> Enter Diagnosis Detail and click Add to Submit</h1>
+
 <form method = "post", action = "">
  Diagnoses ID<input type = "number" name = "id"><br>
  Patient ID <input type = "text" name = "pid"><br>
-Date <input type = "date" name = "date"><br>
+Date           <input type = "date" name = "date"><br>
 Temperature <input type = "text" name = "temp"><br>
 SpO2 <input type = "text" name = "sp"><br>
 Pulse <input type = "text" name = "pulse"><br>
