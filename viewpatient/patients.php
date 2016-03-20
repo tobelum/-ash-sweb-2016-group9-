@@ -10,7 +10,7 @@ class patients extends adb{
 	}
 	/**
 	*Gets all patients
-	*@param int patient_id Patient ID
+	*@param int patient_id patient ID
 	*@param string username username
 	*@param string firstname first name
 	*@param string lastname last name
@@ -25,9 +25,9 @@ class patients extends adb{
 	*/
 	
 	
-	/**
+	/** 
 	*gets patients' records based on the filter
-	*@param string mixed condition to filter. If  false, then filter will not be applied
+	*@param string mixed condition to filter. If false, then filter will not be applied
 	*@return boolean true if successful, else false
 	*/
 	function getPatients($filter=false){

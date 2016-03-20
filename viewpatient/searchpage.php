@@ -34,6 +34,10 @@
 						<input type="text" name="txtSearch">
 						<input type="submit" value="search" >		
 					</form>	
+					
+					<!--link to homepage-->
+					<p><a href ="searchpage.php">Homepage</a></p>
+
 
 <?php
 
