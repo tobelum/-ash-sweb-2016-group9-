@@ -82,7 +82,7 @@
 				<td><a href='editPatient.php?patientID={$row['patient_id']}&username={$row['username']}&firstname={$row['firstname']}
 				&lastname={$row['lastname']}&gender={$row['gender']}&nationality={$row['nationality']}&insurance_type=
 				{$row['insurance_type']}&dob={$row['dob']}&phone_number={$row['phone_number']}&email={$row['email']}
-				&group={$row['group_name']}'>Edit</a></td>";	
+				&group_name={$row['group_name']}'>Edit</a></td>";	
 
 				}	
 
@@ -121,7 +121,7 @@
 				<td>{$row['dob']}</td>
 				<td>{$row['phone_number']}</td>
 				<td>{$row['email']}</td>
-				<td>{$row['group_name']}</td>
+				<td>{$row['groupName']}</td>
 
 
 
@@ -129,16 +129,9 @@
 				<td><a href='editPatient.php?patientID={$row['patient_id']}&username={$row['username']}&firstname={$row['firstname']}
 				&lastname={$row['lastname']}&gender={$row['gender']}&nationality={$row['nationality']}&insurance_type=
 				{$row['insurance_type']}&dob={$row['dob']}&phone_number={$row['phone_number']}&email={$row['email']}
-				&group={$row['group_name']}'>Edit</a></td>";	
+				&group_name={$row['groupName']}'>Edit</a></td>";	
 	}
 	}
-	
-
-
-
-
-
-
 			
 ?>						
 					</div>
