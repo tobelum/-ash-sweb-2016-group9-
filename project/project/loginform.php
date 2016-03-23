@@ -28,9 +28,23 @@
 				} 
 			}
 		}else{ // Mysql_num_row is counting table row
+			
 			echo 'You must login with your username and password. <a href="loginPage.php">Go to loginPage </a>';
-		//<a href="logout.php"> Log out </a>
+			//header("location:loginPage.php");
 		}
-	}
-	
+	}	
 ?>
+<!--
+<html>
+	<body>
+		<script type="text/javascript" language="javascript">
+			function enterValidUser(){
+				alert("You must login with your username and password");
+				header("location:loginPage.php");
+			}
+			enterValidUser();
+		</script>
+		<?php //include_once("clinicHomePage.php") ?>
+	</body>
+</html>
+-->

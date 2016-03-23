@@ -5,22 +5,22 @@
 	if(isset($_SESSION ['$user_id']) && !empty($_SESSION['$user_id'])){
 		//header("location:loginPage.php");
 		echo "You are not successfully logged in";
-	} else{
-		include_once("clinicHomePage.php");
-	}
+	} //else{
+		//include_once("clinicHomePage.php");
+	//}
 	
 ?>
 
-<!--
+
 <html>
 	<body>
+		<?php include_once("clinicHomePage.php") ?>
 		<script type="text/javascript" language="javascript">
 			function enterValidUser(){
 				alert("Login Successful")
 			}
 			enterValidUser();
 		</script>
-		<?php //include_once("clinicHomePage.php") ?>
+		<?php include_once("clinicHomePage.php") ?>
 	</body>
 </html>
--->
