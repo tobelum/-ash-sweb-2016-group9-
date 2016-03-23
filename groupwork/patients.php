@@ -1,5 +1,20 @@
 <?php
      include_once("adb.php");
+     
+     /**
+	*Variables used in all the functions for Patients
+	*@param int patient_id patient ID
+	*@param string username username
+	*@param string firstname first name
+	*@param string lastname last name
+	*@param string gender gender
+	*@param string nationality nationality
+	*@param string insurance_type insurance type
+	*@param date dob date of birth
+	*@param int group_name group name
+	*@param int phone_number phone number
+	*@param string email email address
+	*/
 
      class patients extends adb{
 
