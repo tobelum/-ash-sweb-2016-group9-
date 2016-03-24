@@ -12,6 +12,7 @@ class testPatients extends PHPUnit_Framework_TestCase
 			
 		$this->assertTrue($a);
 		
+		
     }
 
     public function testEditPatient(){
