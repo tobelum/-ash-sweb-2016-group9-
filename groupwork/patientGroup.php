@@ -10,18 +10,7 @@ class patientGroup extends adb{
 		return $this->query($strQuery);
 	
 	}
-/*	 function addPatientGroup($text){
-	 	$strQuery="insert into patientgroup (groupName) values ('$text')";
-	 	return $this->query($strQuery);
-	 	
-	 	if (!$this->query($strQuery)){
-			echo "Error adding PATIENTgroup";
-			exit();
-	 	}else{
-	 		echo "Success adding usergroup";
-	 	}
-	 }
-	 */
+
 
 }
 

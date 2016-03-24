@@ -42,7 +42,7 @@
                     $dob="";
                     $phone_number="";
                     $email="";
-                    $group="";
+                    $group_name=0;
                 
               
       if(isset($_REQUEST['patientID'])){
@@ -56,7 +56,8 @@
                     $dob=$_REQUEST['dob'];
                     $phone_number=$_REQUEST['phone_number'];
                     $email=$_REQUEST['email'];
-                    $group=$_REQUEST['group'];
+                    $group_name=$_REQUEST['group_name'];
+
                }
           
                //1) what is the purpose of this if block
@@ -66,12 +67,12 @@
                     include_once("patients.php");
                     $obj=new patients();
                     $r=$obj->editPatient($patientID,$username,$firstname,$lastname,$gender,$nationality,$insurance_type,
-                    $dob,$email,$phone_number,$email);
+                    $dob,$group_name,$phone_number,$email);
                     //1) what is the purpose of this if block
                     if($r==false){
                          $strStatusMessage="error while editing user";
                     }else{
-                         header("Location:patientsHomepage.php");
+                        header("Location:patientsHomepage.php");
                          $strStatusMessage="$username edited";
                     }
 
@@ -87,7 +88,7 @@
                               
 <BR>
      
-                              <form action="" method="GET">
+                                      <form action="" method="GET">
                <div>Patient's ID : <input type="text" name="patientID" value="<?php echo $patientID; ?>" readonly/> </div>  
                <br>               
                <div> Username: <input type="text" name="username" value="<?php echo $username; ?>"/></div>
@@ -96,31 +97,37 @@
                <br> 
                <div>Last Name: <input type="text" name="lastname" value="<?php echo $lastname; ?>"/></div>
                <br> 
-               <div>Gender: <input type="text" name="gender" value="<?php echo $gender; ?>"/> </div>
+               <div>Gender: <select name="gender"><option value="1">Male</option>
+                                                  <option value="2">Female</option>
+               </select>
+               </div>
                <br>                  
                <div> Nationality: <input type="text" name="nationality" value="<?php echo $nationality; ?>"/></div>
                <br> 
-               <div>Insurance Type: <input type="text" name="insurance_type" value="<?php echo $insurance_type; ?>"/></div>
+               <div>Insurance Type: <select name="insurance_type"><option value="1">MedEx</option>
+                                                                  <option value="2">NHIS</option>
+               </select>
+               </div>
                <br> 
-               <div>Date of Birth: <input type="text" name="dob" value="<?php echo $dob; ?>"/></div>
+               <div>Date of Birth: <input type="date" name="dob" value="<?php echo $dob; ?>"/></div>
                <br> 
                <div>Phone Number: <input type="text" name="phone_number" value="<?php echo $phone_number; ?>"/></div>
                <br> 
                <div>Email Address: <input type="text" name="email" value="<?php echo $email; ?>"/></div>
-     
+    
                <div>Patient's Group: 
-                    <select name="group">
+                    <select name="group_name">
 <?php
      //a call to the class
      include_once("patientGroup.php");
-     $group= new patientGroup();
-     $result=$group->getAllPatientGroup();
+     $group_name= new patientGroup();
+     $result=$group_name->getAllPatientGroup();
      //echo $strQuery;
      if($result==false){
           //
           echo "result is false";
      }else{
-          while($row=$group->fetch()){
+          while($row=$group_name->fetch()){
                echo "<option value='{$row['groupID']}'>{$row['groupName']}</option>";
           }
      }
@@ -129,6 +136,10 @@
 ?>                  
                     </select>
                </div>
+
+
+
+
                <input type="submit" value="Update" name="update">
           </form>                                 
                          </div>
