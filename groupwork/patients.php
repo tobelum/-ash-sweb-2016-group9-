@@ -22,8 +22,6 @@
      *Function search patients
      *@param int $filter contains the Patient ID
 */
-// select username,firstname,lastname,gender,nationality,insurance_type,dob,group_name,phone_number,
-//             email from patients left join patientgroup on patients.group_name=patientgroup.groupID where patient_id = '84082017';
 
 /**  
      *Function get patients
@@ -39,10 +37,6 @@
           }
                return $this->query($strQuery);
      	}
-
-// $obj = new patients();
-//getPatients('84082017','roslynne.amoah','roslynne','amoah','female','Nigerian','MED-X','1994-02-17','0','208497123','oslynne.amoah@ashesi.edu.gh');
-
 
 /**  
      *Function edit Patient
