@@ -4,7 +4,6 @@
 <h1 style = "background-color:brown"> Enter Diagnosis Detail and click Add to Submit</h1>
 
 <form method = "post", action = "">
- Diagnoses ID<input type = "number" name = "id"><br>
  Patient ID <input type = "text" name = "pid"><br>
 Date           <input type = "date" name = "date"><br>
 Temperature <input type = "text" name = "temp"><br>
@@ -25,7 +24,6 @@ include_once("nurse.php");
 if(!empty($_REQUEST)) {
 $obj = new nurse();
 
-$did = $_REQUEST['id'];
 $p_id = $_REQUEST['pid'];
 $date = $_REQUEST['date'];
 $temp = $_REQUEST['temp'];
@@ -36,7 +34,7 @@ $com = $_REQUEST['comp'];
 $treat = $_REQUEST['treatment'];
 $remark = $_REQUEST['rmk'];
 
-$add = $obj->addNewDiagnosis($did,$date,$temp,$sp,$pulse,$bp,$com,$treat,$remark,$p_id);
+$add = $obj->addNewDiagnosis($date,$temp,$sp,$pulse,$bp,$com,$treat,$remark,$p_id);
 
 
 if ($add) {echo "Data Sucessfully added";}    

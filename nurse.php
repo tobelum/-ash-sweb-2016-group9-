@@ -35,9 +35,8 @@ class nurse extends adb{
 	*@param text p_id patient's ID
 	*@return boolean returns true if successful or false 
 	*/
-	function addNewDiagnosis($did,$date,$temp,$sp,$pulse,$bp,$com,$treat,$rmk,$p_id) {
+	function addNewDiagnosis($date,$temp,$sp,$pulse,$bp,$com,$treat,$rmk,$p_id) {
 		$strQuery = "INSERT INTO diagnosis set
-					diagnosis_id = '$did',
 					diagnosedate = '$date',
 					temp = '$temp',
 					spO2 = '$sp',
