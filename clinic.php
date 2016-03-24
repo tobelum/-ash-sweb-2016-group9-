@@ -1,5 +1,5 @@
 <html>
-<head> </head>
+<head> <title> AshClinic </title> </head>
 
 <body>
 <form method="GET", action="clinic.php">
