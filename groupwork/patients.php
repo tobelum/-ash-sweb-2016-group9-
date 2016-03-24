@@ -21,16 +21,7 @@
 /**  
      *Function search patients
      *@param int $filter contains the Patient ID
-*/
-          function searchPatients($text=false){
-          $filter=false;
-          if($text!=false){
-               $filter="patient_id like '%$text%' or firstname like '%$text%' or lastname like '%$text%' or 
-               group_name like '%$text%' or username like '%$text%' or insurance_type like '%$text%' or gender like '%$text%' or 
-               or nationality like '%$text%'";
-          }
-               return $this->getPatients($filter);
-          }
+
 // select username,firstname,lastname,gender,nationality,insurance_type,dob,group_name,phone_number,
 //             email from patients left join patientgroup on patients.group_name=patientgroup.groupID where patient_id = '84082017';
 
