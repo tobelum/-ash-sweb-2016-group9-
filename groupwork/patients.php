@@ -21,7 +21,7 @@
 /**  
      *Function search patients
      *@param int $filter contains the Patient ID
-
+*/
 // select username,firstname,lastname,gender,nationality,insurance_type,dob,group_name,phone_number,
 //             email from patients left join patientgroup on patients.group_name=patientgroup.groupID where patient_id = '84082017';
 
