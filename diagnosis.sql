@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2016 at 11:34 PM
+-- Generation Time: Mar 18, 2016 at 02:06 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `diagnosis` (
   `diagnosis_id` int(20) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `diagnosedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `temp` int(20) NOT NULL,
   `sp02` varchar(20) NOT NULL,
   `pulse` int(20) NOT NULL,
