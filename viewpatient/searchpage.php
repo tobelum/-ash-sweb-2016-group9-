@@ -123,7 +123,14 @@
 								<td>{$row['group_name']}</td>
 								<td>{$row['phone_number']}</td>
 								<td>{$row['email']}</td>
-							</tr>";
+							
+		
+		
+		<td><a href='editPatient.php?patientID={$row['patient_id']}&username={$row['username']}&firstname={$row['firstname']}
+				&lastname={$row['lastname']}&gender={$row['gender']}&nationality={$row['nationality']}&insurance_type=
+				{$row['insurance_type']}&dob={$row['dob']}&phone_number={$row['phone_number']}&email={$row['email']}
+				&group_name={$row['groupName']}'>Edit</a></td>";
+		
 		}
 
 	}

@@ -48,6 +48,7 @@ class adb{
 	*@return array one record
 	*/
 	function fetch(){
+		//Complete this funtion to fetch from the $this->result
 		if($this->result==null){
 			return false;
 		}
@@ -59,14 +60,5 @@ class adb{
 		return $this->result->fetch_assoc();
 	}
 }
-/*
-This is a test code
-$obj=new adb();
-if(!$obj->query("select * from diagnosis"))
-{
-	echo "error";
-	exit();
-}
-print_r($obj->fetch());
-*/
+
 ?>

@@ -29,9 +29,9 @@
 							</div>
 							<div id="divContent">
 							<!--Links to the rest of the functional requirements -->
-							<div id="div2"> <a href="loginPage.php"> <h2 >Register Patient</h2> </a> </div> 
+							<div id="div2"> <a href="addPatientForm.php"> <h2 >Register Patient</h2> </a> </div> 
 							<div id="div3"> <a href="patientsHomepage.php"> <h2>Update Patient's Personal Information</h2> </a> </div> 
-							<div id="div4"> <a href="loginPage.php"> <h2> Add Patient Diagnosis</h2> </a> </div> 
+							<div id="div4"> <a href="clinic.php"> <h2> Add Patient Diagnosis</h2> </a> </div> 
 							<div id="div5"> <a href="searchpage.php"> <h2>View Patient Record </h2> </a> </div>
 							</div>
 						</td>

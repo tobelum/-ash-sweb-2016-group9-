@@ -1,5 +1,5 @@
 <?php
-	include_once("adb.php");
+	include_once("db.php");
 
 	//check username, id and password sent from the form
 	if(isset($_POST['username'])&&isset($_POST['password'])){

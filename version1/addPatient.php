@@ -1,14 +1,12 @@
 <?php
-include_once("adb.php");
+include_once ("adb.php");
+class addPatient extends adb {
 
-class report extends adb{
+function addPatient () {
 
-function getAllPatientGroups(){
-		$strQuery="select groupID, groupName from patientgroup";
-		return $this->query($strQuery);
-	
-	}
+}
     
+
 function newPatient ($patientID ='none',$username='none',$firstname='none',$lastname='none',$gender='none',$nationality='none', $insuranceType='none',$dob='none',$group=0,$phoneNumber='none'){
     
     $strQuery = "insert into patients SET patient_id = '$patientID',
@@ -25,9 +23,22 @@ function newPatient ($patientID ='none',$username='none',$firstname='none',$last
                                            ";
 return $this->query ($strQuery);
 
-    
-}
-    
+
 }
 
-<?
+}
+/*$obj = new addPatient ();
+
+$result = $obj->addPatient('60702017','jesse.akosa','jesse','akosa','male','ghanaian','nhis',1993-03-02,1,'0279507667');
+
+if ($result = false){
+echo "add unsuccessful";
+}
+
+else {
+echo "add successful";
+}
+*/
+
+?>
+
