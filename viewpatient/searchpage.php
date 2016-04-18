@@ -56,6 +56,10 @@
 			$r=$_REQUEST['txtSearch'];
 			$sub->searchDiagnosis($r);
 
+			if(!$sub->searchDiagnosis($r)){
+				echo "Error getting diagnosis";
+			}
+
 			$col1 = "orange";
 			echo "<table border='1'><tr bgcolor=$col1>
 										<td>Diagnosis ID</td>
@@ -69,10 +73,13 @@
 										<td>Remarks of Nurse</td>
 										<td>Patient ID</td>
 									</tr>";
+				
+			
 			while($row=$sub->fetch()){
 				if(!$row){
 				echo "Invalid Patient ID";
 				}
+				else{
 					$col2="yellow";
 							echo "<tr bgcolor=$col2>
 										<td>{$row['diagnosis_id']}</td>
@@ -86,11 +93,17 @@
 										<td>{$row['remark']}</td>
 										<td>{$row['specificPatient_id']}</td>
 									</tr>";
+								}
+						}
+
+					
+
 		}
-
-
-		}else{
-			$obj->getPatients();
+		else{
+		
+			if(!$obj->getPatients()){
+				echo "Error getting patients";
+			}
 
 				$col1 = "orange";
 				echo "<table border='1'><tr bgcolor=$col1>
@@ -106,10 +119,15 @@
 											<td>Phone Number</td>
 											<td>Email</td>
 										</tr>";
+				
 				while($row=$obj->fetch()){
-				if(!$row){
-				echo "Invalid Patient ID";
-				}
+                     // to check if the Patient's ID is valid
+                    if(!$row)
+                     {
+                     	echo "Invalid Patient ID";
+                     }
+                    else
+                    {
 					$col2="yellow";
 					echo "<tr bgcolor=$col2>
 								<td>{$row['patient_id']}</td>
@@ -120,18 +138,21 @@
 								<td>{$row['nationality']}</td>
 								<td>{$row['insurance_type']}</td>
 								<td>{$row['dob']}</td>
-								<td>{$row['group_name']}</td>
+								<td>{$row['groupName']}</td>
 								<td>{$row['phone_number']}</td>
 								<td>{$row['email']}</td>
 							</tr>";
+						}
 		}
-
 	}
+		
 
 	
 
 	
-	//3) show the result
+
+	
+
 
 	
 	
