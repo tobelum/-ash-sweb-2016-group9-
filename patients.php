@@ -40,6 +40,20 @@ class patients extends adb{
 		}
 		return $this->query($strQuery);
 	}
+
+	/**
+	*Searches for patient by patient id
+	*@param string text search text
+	*@return boolean true if successful, else false
+	*/
+	function searchPatients($text=false){
+		$filter=false;
+		if($text!=false){
+			$filter="patient_id = '$text'";
+		}
+		
+		return $this->getPatients($filter);
+	}
 	
 	
 	}

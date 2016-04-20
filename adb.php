@@ -48,6 +48,7 @@ class adb{
 	*@return array one record
 	*/
 	function fetch(){
+		//Complete this funtion to fetch from the $this->result
 		if($this->result==null){
 			return false;
 		}
@@ -62,7 +63,7 @@ class adb{
 /*
 This is a test code
 $obj=new adb();
-if(!$obj->query("select * from diagnosis"))
+if(!$obj->query("select * from users"))
 {
 	echo "error";
 	exit();

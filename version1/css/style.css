@@ -31,16 +31,16 @@ body{
 
 .menuitem {
 	text-decoration:none;
-	background-color:#f37520;
+	background-color:#e7d3dc;
     color:#fff;
 	cursor:hand;
     border: 1px solid none;
     width: 80px;
     border-radius: 1px;
     margin: 0 auto;
-    margin-left: 10px;
+    margin-left: 0px;
     padding: 10px
-
+	
 
 }
 .menuitem:hover{
@@ -49,21 +49,58 @@ body{
 	font-weight:bold;
 	background-color:Silver
 }
+.menuitem1 {
+	text-decoration:none;
+	background-color:#e7d3dc;
+    color:#fff;
+	cursor:hand;
+    border: 1px solid none;
+    width: 200px;
+    border-radius: 1px;
+    margin: 0px;
+    margin-left: 5px;
+    padding: 20px
+	
+}
+
+.menuitem1:hover{
+	text-decoration:underline;
+	cursor:hand;
+	font-weight:bold;
+	background-color:#D3D3D3
+}
 
 #pageheader
 {
     height: 1in;
-    background-color: #FFCC66;
+    background-color: #b30000;
     font-size: large;
     text-align: center;
 }
 
+#pagefooter
+{
+    height: 1.5in;
+    background-color:#4d4d4d;
+    font-size: large;
+    text-align: center;
+}
+
+
+#mainnav1{
+	width:12in;
+	vertical-align:top
+}
 #mainnav{
 	width:2in;
 	vertical-align:top
 }
-
-
+#div7{
+	border:green; 
+	position:absolute; 
+	top:4px; 
+	left:0px;
+}
 #content {
 	width:11.85in;
     margin-left: 500px;
@@ -202,9 +239,18 @@ table.container {
 
 
 #divPageMenu {
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 30px;
+    padding-top: 5px;
     margin-bottom: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 60px;
+    margin-right: 100px;
+}
+#footer {
+	height: 1in;
+	clear:both;
+	text-align:center;
+	padding:40px;
+	border-top: 2px solid white;
+	background-color:#4d4d4d;
+	
 }
