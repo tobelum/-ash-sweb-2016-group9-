@@ -34,10 +34,13 @@ class patients extends adb{
 		$strQuery="select patient_id,username,firstname,lastname,gender,nationality, insurance_type,dob,patientgroup.groupName,
 		phone_number,email from patients, patientgroup where patients.group_name=patientgroup.groupID";
 		if($filter!=false){
-			$strQuery=$strQuery . " where $filter";
+			$strQuery=$strQuery . " & $filter";
 			
 
+
 		}
+
+		echo "$strQuery";
 		return $this->query($strQuery);
 	}
 
@@ -47,12 +50,11 @@ class patients extends adb{
 	*@return boolean true if successful, else false
 	*/
 	function searchPatients($text=false){
-		$filter=false;
-		if($text!=false){
-			$filter="patient_id = '$text'";
-		}
-		
-		return $this->getPatients($filter);
+	
+		$strQuery="select patient_id, firstname, lastname from patients where patient_id= $text";
+
+		return $this->query($strQuery);
+
 	}
 	
 	

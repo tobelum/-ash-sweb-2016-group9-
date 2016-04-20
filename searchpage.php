@@ -2,9 +2,7 @@
 	<head>
 		<title>Ashesi Health Center: View Patient's History</title>
 		<link rel="stylesheet" href="css/styles.css">
-		<script>
-			<!--add validation js script here
-		</script>
+
 	</head>
 	<body>
 		<table>
@@ -35,7 +33,7 @@
 					<form action="" method="GET">
 						Enter Patient's ID:
 						<input type="text" name="txtSearch">
-						<div id="button"><input type="submit" value="Search" ></div>	
+						<span id="button"><input type="submit" value="Search" ></span>	
 					</form>	
 						</div>
 <?php
@@ -53,6 +51,7 @@
 
 									if(isset($_REQUEST['txtSearch'])){
 										$r=$_REQUEST['txtSearch'];
+
 										$sub->searchDiagnosis($r);
 										$obj->searchPatients($r);
 
@@ -60,6 +59,7 @@
 										$s=$_REQUEST['txtSearch'];
 										if(!$obj->searchPatients($s)){
 											echo "Error getting patient";
+											//return;
 										}
 
 											while($row=$obj->fetch()){
@@ -71,8 +71,10 @@
 							                    else
 							                    {
 												echo "<table>
-															<tr>{$row['firstname']}</tr>
-															<tr>{$row['lastname']}</tr>
+															<td><h3>{$row['patient_id']}</h3></td>
+															<td><h3>{$row['firstname']}</h3></td>
+															<td><h3>{$row['lastname']}</h3></td>
+														</table>
 													 ";
 												}
 											}
@@ -127,18 +129,18 @@
 
 											$col1 = "#993333";
 											echo "<table border='1'><tr bgcolor=$col1>
-																		<td>Patient ID</td>
-																		<td>Username</td>
-																		<td>First Name</td>
-																		<td>Last Name</td>
-																		<td>Gender</td>
-																		<td>Nationality</td>
-																		<td>Insurance Type</td>
-																		<td>Date of Birth</td>
-																		<td>Group Name</td>
-																		<td>Phone Number</td>
-																		<td>Email</td>
-																		<td>View</td>
+																		<th><font color='white'>Patient ID</font></th>
+																		<th><font color='white'>Username</font></th>
+																		<th><font color='white'>First Name </font></th>
+																		<th><font color='white'>Last Name</font></th>
+																		<th><font color='white'>Gender</font></th>
+																		<th><font color='white'>Nationality</font></th>
+																		<th><font color='white'>Insurance Type</font></th>
+																		<th><font color='white'>Date of Birth</font></th>
+																		<th><font color='white'>Group Name</font></th>
+																		<th><font color='white'>Phone Number</font></th>
+																		<th><font color='white'>Email Address</font></th>
+																		<th><font color='white'>View</font></th>
 																	</tr>";
 											
 											while($row=$obj->fetch()){
