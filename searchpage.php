@@ -2,6 +2,7 @@
 	<head>
 		<title>Ashesi Health Center: View Patient's History</title>
 		<link rel="stylesheet" href="css/styles.css">
+		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 
 	</head>
 	<body>
