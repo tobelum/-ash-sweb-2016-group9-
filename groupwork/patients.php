@@ -22,6 +22,17 @@
      *Function search patients
      *@param int $filter contains the Patient ID
 */
+		function searchPatients($text=false){
+			$filter=false;
+			if($text!=false){
+				$filter=" patient_ID like '%$text%' or username like '%$text%' or firstname like '%$text%' or lastname 
+				like '%$text%' or gender like '$text' or nationality like '%$text%' or insurance_type like '%$text%'
+                    ";
+			}
+			
+			return $this->getPatients($filter);
+			
+		}
 
 /**  
      *Function get patients
