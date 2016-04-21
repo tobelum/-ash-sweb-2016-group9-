@@ -174,8 +174,13 @@
 																		<th><font color='white'>Gender</font></th>
 																		<th><font color='white'>Nationality</font></th>
 																		<th><font color='white'>Insurance Type</font></th>
+																		<th><font color='white'>Date of Birth</font></th>
+																		<th><font color='white'>Patient Group</font></th>
+																		<th><font color='white'>Phone number</font></th>
+																		<th><font color='white'>Email Address</font></th>
 																		<th><font color='white'>View</font></th>
 																	</tr>";
+																	//dob,patientgroup.groupName,phone_number,email from patients, patientgroup
 											
 											while($row=$obj->fetch()){
 							                     // to check if the Patient's ID is valid
@@ -194,6 +199,10 @@
 															<td>{$row['gender']}</td>
 															<td>{$row['nationality']}</td>
 															<td>{$row['insurance_type']}</td>
+															<td>{$row['dob']}</td>
+															<td>{$row['groupName']}</td>
+															<td>{$row['phone_number']}</td>
+															<td>{$row['email']}</td>
 															<td><a href='viewDiagnosis(this,{$row['patient_id']})'>View</a></td>
 															
 														</tr>
