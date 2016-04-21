@@ -11,7 +11,7 @@ $cmd=$_REQUEST['cmd'];
 
 switch ($cmd) {
 	case 1:
-		viewPatientinfo(); //call the function to view the rest of the patient's info
+		viewDiagnosisinfo(); //call the function to view the patient's history
 		break;
 	
 	default:
@@ -19,8 +19,8 @@ switch ($cmd) {
 		break;
 }
 
-function viewPatientinfo(){
-	include_once("patients.php");
+function viewDiagnosisinfo(){
+	include_once("diagnosis.php");
 
 	//check for patient id
 	if(!isset($_REQUEST['uc'])){
@@ -29,11 +29,11 @@ function viewPatientinfo(){
 	}
 	$patientid = $_REQUEST['uc'];
 
-	//create an object of the patient class
-	$obj=new patients();
+	//create an object of the diagnosis class
+	$obj=new diagnosis();
 
-	// call getPatient method
-	$row=$obj->getPatient($patientid);
+	// call searchDiagnosis method
+	$row=$obj->searchDiagnosis($patientid);
 
 	if($row==false){
 		echo '{"result":0,"message":"Patient ID not correct"}';	
@@ -41,7 +41,7 @@ function viewPatientinfo(){
 	}
 	$result=$obj->fetch();
 		
-	echo '{"result":1,"patient":';
+	echo '{"result":1,"diagnosis":';
 		echo json_encode($result);
 	echo '}';
 

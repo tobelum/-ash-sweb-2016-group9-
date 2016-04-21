@@ -6,9 +6,9 @@
 		<script type="text/javascript">
 			<!--add validation js script here
 
-			function viewPatientComplete(xhr,status){
+			function viewDiagnosisComplete(xhr,status){
 				if(status!="success"){
-					divStatus.innerHTML = "error while viewing Patient's info";
+					divStatus.innerHTML = "error while viewing Patient's History";
 					return;
 				}
 
@@ -17,8 +17,8 @@
 					divStatus.innerHTML=obj.message;	
 				}else{
 					
-					divStatus.innerHTML="View Patient's Info";
-					currentobj.innerHTML=obj.patient.username+" "+obj.patient.email;
+					divStatus.innerHTML="View Patient's History";
+					//currentobj.innerHTML=obj.patient.username+" "+obj.patient.email;
 						
 				}
 
@@ -26,13 +26,13 @@
 
 			var currentobj=null;
 
-			function viewPatient(obj,patientid){
+			function viewDiagnosis(obj,patientid){
 			
-				var pageUrl="patientsajax.php?cmd=1&uc="+patientid;
+				var pageUrl="diagnosisajax.php?cmd=1&uc="+patientid;
 
 				$.ajax(pageUrl,
 					{async:true,
-						complete:viewPatientComplete
+						complete:viewDiagnosisComplete
 					});
 					currentobj=obj;
 			}
@@ -66,7 +66,7 @@
 					<div id="divContent">
 						<div id="divSearch">
 							<div id="divStatus" class="status">
-							 To Display Patient
+							 To Display Patient's History
 							</div>
 					<form action="" method="GET">
 						Enter Patient's ID:
@@ -194,13 +194,13 @@
 															<td>{$row['gender']}</td>
 															<td>{$row['nationality']}</td>
 															<td>{$row['insurance_type']}</td>
-															<td><a href='searchpage.php?txtSearch={$row['patient_id']}'>View</a></td>
-															<td>
-																<span onclick='viewPatient(this,{$row['patient_id']})'>more</span>
-															</td>
+															<td><a href='viewDiagnosis(this,{$row['patient_id']})'>View</a></td>
+															
 														</tr>
 			
-														";		
+														";	//<td>
+															//	<span onclick='viewDiagnosis(this,{$row['patient_id']})'>more</span>
+															//</td>	
 													}
 									}
 								}
