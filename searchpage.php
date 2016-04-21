@@ -6,7 +6,36 @@
 		<script type="text/javascript">
 			<!--add validation js script here
 
+			function viewPatientComplete(xhr,status){
+				if(status!="success"){
+					divStatus.innerHTML = "error while viewing Patient's info";
+					return;
+				}
+
+				var obj=$.parseJSON(xhr.responseText);
+				if(obj.result==0){
+					divStatus.innerHTML=obj.message;	
+				}else{
+					
+					divStatus.innerHTML="View Patient's Info";
+					currentobj.innerHTML=obj.patient.username+" "+obj.patient.email;
+						
+				}
+
+			}
+
+			var currentobj=null;
+
+			function viewPatient(obj,patientid){
 			
+				var pageUrl="patientsajax.php?cmd=1&uc="+patientid;
+
+				$.ajax(pageUrl,
+					{async:true,
+						complete:viewPatientComplete
+					});
+					currentobj=obj;
+			}
 
 		</script>
 	</head>
@@ -166,24 +195,15 @@
 															<td>{$row['nationality']}</td>
 															<td>{$row['insurance_type']}</td>
 															<td><a href='searchpage.php?txtSearch={$row['patient_id']}'>View</a></td>
-														
-
-											</tr>
-															
-
-														";
-															//<td>
-															//	<span onclick='viewPatient(this,{$row['patient_id']})'>more</span>
-															//</td>
-															
+															<td>
+																<span onclick='viewPatient(this,{$row['patient_id']})'>more</span>
+															</td>
+														</tr>
+			
+														";		
 													}
-
-									
-
 									}
 								}
-		
-
 
 ?>
                                 
