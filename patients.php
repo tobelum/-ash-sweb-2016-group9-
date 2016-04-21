@@ -56,7 +56,14 @@ class patients extends adb{
 
 	}
 
+	function getPatient($patient_id){
+		$strQuery="select patient_id,username,firstname,lastname,gender,nationality, 
+					insurance_type,dob,patientgroup.groupName,phone_number,email from patients, patientgroup 
+					where patient_id =$patient_id and patients.group_name=patientgroup.groupID ";
 
+		return $this->query($strQuery);
+
+	}
 	
 	}
 ?>
