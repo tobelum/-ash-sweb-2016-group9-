@@ -55,7 +55,8 @@ class patients extends adb{
 		return $this->query($strQuery);
 
 	}
-	
+
+
 	
 	}
 ?>

@@ -3,13 +3,18 @@
 		<title>Ashesi Health Center: View Patient's History</title>
 		<link rel="stylesheet" href="css/styles.css">
 		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+		<script type="text/javascript">
+			<!--add validation js script here
 
+			
+
+		</script>
 	</head>
 	<body>
 		<table>
 			<tr>
 				<td colspan="2" id="pageheader">
-				<div id="div7"> <img src="logo.png" height="60"/> </div>
+				<div id="div7"> <img src="css/logo.png" height="60"/> </div>
 					<font color="white">Ashesi Health Center</font>
 				<ul>
 					<!--Links to important websites-->
@@ -31,6 +36,9 @@
 					</div>
 					<div id="divContent">
 						<div id="divSearch">
+							<div id="divStatus" class="status">
+							 To Display Patient
+							</div>
 					<form action="" method="GET">
 						Enter Patient's ID:
 						<input type="text" name="txtSearch">
@@ -137,10 +145,6 @@
 																		<th><font color='white'>Gender</font></th>
 																		<th><font color='white'>Nationality</font></th>
 																		<th><font color='white'>Insurance Type</font></th>
-																		<th><font color='white'>Date of Birth</font></th>
-																		<th><font color='white'>Group Name</font></th>
-																		<th><font color='white'>Phone Number</font></th>
-																		<th><font color='white'>Email Address</font></th>
 																		<th><font color='white'>View</font></th>
 																	</tr>";
 											
@@ -161,16 +165,17 @@
 															<td>{$row['gender']}</td>
 															<td>{$row['nationality']}</td>
 															<td>{$row['insurance_type']}</td>
-															<td>{$row['dob']}</td>
-															<td>{$row['groupName']}</td>
-															<td>{$row['phone_number']}</td>
-															<td>{$row['email']}</td>
 															<td><a href='searchpage.php?txtSearch={$row['patient_id']}'>View</a></td>
+														
 
 											</tr>
 															
 
 														";
+															//<td>
+															//	<span onclick='viewPatient(this,{$row['patient_id']})'>more</span>
+															//</td>
+															
 													}
 
 									
