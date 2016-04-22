@@ -16,18 +16,78 @@
 			
 			
             function addPatients (patientID,username,firstname,lastname,gender,nationality,insurance,dob,group,phone,email){
+                if($("#ID").val() != ""){
+                    var patientID = $( "#ID" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT ID");
+                    return;
+                }
                 
-                var patientID = $( "#ID" ).val();
-			 var username = $( "#usename" ).val();
-             var firstname = $( "#first" ).val();
-             var lastname = $( "#last" ).val();
-             var gender = $( "#gen" ).val();
-             var nationality = $( "#nat" ).val();
-             var insurance = $( "#ins" ).val();
-             var dob = $( "#dob" ).val();
+                if($("#usename").val() != ""){
+                    var username = $( "#usename" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT USERNAME");
+                    return;
+                }
+                
+                if($("#first").val() != ""){
+                    var firstname = $( "#first" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT FIRSTNAME");
+                    return;
+                }
+                
+                if($("#last").val() != ""){
+                    var lastname = $( "#last" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT LASTNAME");
+                    return;
+                }
+                
+                if($("#gen").val() != ""){
+                    var gender = $( "#gen" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT GENDER");
+                    return;
+                }
+            
+			    if($("#nat").val() != ""){
+                    var firstname = $( "#nat" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT NATIONALITY");
+                    return;
+                }
+                
+                if($("#ins").val() != ""){
+                    var firstname = $( "#ins" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT INSURANCE TYPE");
+                    return;
+                }
+            
+                if($("#dob").val() != ""){
+                    var firstname = $( "#dob" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT DATE OF BIRTH");
+                    return;
+                }
+                
+                if($("#phone").val() != ""){
+                    var firstname = $( "#phone" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT PHONE NUMBER");
+                    return;
+                }
+                
+                if($("#email").val() != ""){
+                    var firstname = $( "#email" ).val();
+                } else {
+                 alert("PLEASE INCLUDE THE PATIENT EMAIL");
+                    return;
+                }
+                
              var group = $( "#group" ).val();
-             var phone = $( "#phone" ).val();
-             var email = $( "#email" ).val();
+             
                 
 				var ajaxPageUrl="addPatientServer.php?cmd=1&pd="+patientID+"&un="+username+"&fn="+firstname+"&ln="+lastname+"&gn="+gender+"&nt="+nationality+"&it="+insurance+"&db="+dob+"&gr="+group+"&pn="+phone+"&em="+email;
                 
@@ -154,7 +214,7 @@ input[type=text] { float: left; width: 250px; }
 							
 					
 				</table>
-            <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+                <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 			 </body>
 
 		</html>	
