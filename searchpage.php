@@ -79,6 +79,10 @@
 
 
 			}
+			function searchfunction(){
+				var text=document.getElementById("txtbox").innerHTML;
+				viewDiagnosis(text);
+			}
 
 						
 					
@@ -118,8 +122,8 @@
 							</div>
 					<form action="" method="GET">
 						Enter Patient's ID:
-						<input type="text" name="txtSearch">
-						<span id="button"><input type="submit" value="Search" ></span>	
+						<input type="text" id="txtbox" name="txtSearch">
+						<span id="button" onclick='searchfunction()'><input type="submit" value="Search" ></span>	
 					</form>	
 						</div>
 
@@ -156,20 +160,22 @@
 
 								
 								//2) Call the objects' getPatients and searchDiagnosis methods and check for error
-
+									
 									if(isset($_REQUEST['txtSearch'])){
 										$r=$_REQUEST['txtSearch'];
+									}
 
 										$sub->searchDiagnosis($r);
 										$obj->searchPatients($r);
-
+									
+									/*
 										// calling the patient info before the diagnosis
 										$s=$_REQUEST['txtSearch'];
 										if(!$obj->searchPatients($s)){
 											echo "Error getting patient";
 											//return;
 										}
-
+										
 											while($row=$obj->fetch()){
 							                     // to check if the Patient's ID is valid
 							                    if(!$row)
@@ -226,10 +232,11 @@
 													}
 
 												
-
+									
 									}
 									//if there is no patient id searched in the text box, then display list of patients
 									else{
+										*/
 									
 										if(!$obj->getPatients()){
 											echo "Error getting patients";
@@ -283,7 +290,7 @@
 															//</td>	
 													}
 									}
-								}
+								//}
 
 ?>
                                 
