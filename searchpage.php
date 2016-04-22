@@ -18,15 +18,56 @@
 				}else{
 					
 					divStatus.innerHTML="View Patient's History";
+
 					//currentobj.innerHTML=obj.patient.username+" "+obj.patient.email;
+					// Get the modal
+						var modal = document.getElementById('myModal');
+
+						// Get the button that opens the modal
+						var btn = document.getElementById("myBtn");
+
+						// Get the <span> element that closes the modal
+						var span = document.getElementsByClassName("close")[0];
+
 						
+						
+						    modal.style.display = "block";
+						
+
+						// When the user clicks on <span> (x), close the modal
+						span.onclick = function() {
+						    modal.style.display = "none";
+						}
+
+						// When the user clicks anywhere outside of the modal, close it
+						window.onclick = function(event) {
+						    if (event.target == modal) {
+						        modal.style.display = "none";
+						    }
+						}
+						
+						var table=document.getElementById("table");
+						var info="";
+						info+="<tr><th>Date</th><th>Temperature</th><th>SP02</th><th>Pulse</th><th>Blood Pressure</th><th>Complaints</th><th>Treatments Given</th><th>Remarks of Nurse</th></tr>";
+						var length=obj.diagnosis.length;
+						while(length>0){
+							info+="<tr><td>"+obj.diagnosis[length-1].diagnosedate+"</td><td>"+obj.diagnosis[length-1].temp+"</td><td>"+obj.diagnosis[length-1].sp02+"</td><td>"+obj.diagnosis[length-1].pulse+"</td><td>"+obj.diagnosis[length-1].bloodPressure+"</td><td>"+obj.diagnosis[length-1].complaints+"</td><td>"+obj.diagnosis[length-1].treatment+"</td><td>"+obj.diagnosis[length-1].remark+"</td></tr>";
+							length-=1;
+						}
+
+						//putting the information into the pop-up
+						table.innerHTML=info;
+
+
+
+
 				}
 
 			}
 
 			var currentobj=null;
 
-			function viewDiagnosis(obj,patientid){
+			function viewDiagnosis(patientid){
 			
 				var pageUrl="diagnosisajax.php?cmd=1&uc="+patientid;
 
@@ -34,8 +75,13 @@
 					{async:true,
 						complete:viewDiagnosisComplete
 					});
-					currentobj=obj;
+					// currentobj=obj;
+
+
 			}
+
+						
+					
 
 
 
@@ -78,7 +124,6 @@
 						</div>
 
 						<!--html ofr the popup-->
-						<h2>Modal Example</h2>
 
 						<!-- Trigger/Open The Modal 						<button id="myBtn">Open Modal</button>
 -->
@@ -88,19 +133,10 @@
 						<div id="myModal" class="modal">
 						    <div class="modal-content">
 						        <span class="close">×</span>
-						  <table border='1'><tr bgcolor=$col1>
-																	<th><font color='white'>Date</font></th>
-																	<th><font color='white'>Temperature</font></td>
-																	<th><font color='white'>SP02</font></th>
-																	<th><font color ='white'>Pulse</font></th>
-																	<th><font color='white'>Blood Pressure</font></th>
-																	<th><font color ='white'>Complaints</font></th>
-																	<th><font color= 'white'>Treatments Given</font></th>
-																	<th><font color= 'white'>Remarks of Nurse</font></th>
-																</tr></table>
+						  <table id='table' border='1'>
 						  <!-- Modal content -->
 
-
+						  	</table>
 
 						  </div>
 
@@ -238,7 +274,7 @@
 															<td>{$row['phone_number']}</td>
 															<td>{$row['email']}</td>
 															<td>
-														<button id='myBtn'>view history</button></td>
+														<button id='myBtn' onclick='viewDiagnosis({$row['patient_id']})'>view history</button></td>
 															
 														</tr>
 			
@@ -255,33 +291,7 @@
 				</td>
 			</tr>
 		</table>
-		<script>
-						// Get the modal
-						var modal = document.getElementById('myModal');
-
-						// Get the button that opens the modal
-						var btn = document.getElementById("myBtn");
-
-						// Get the <span> element that closes the modal
-						var span = document.getElementsByClassName("close")[0];
-
-						// When the user clicks the button, open the modal
-						btn.onclick = function() {
-						    modal.style.display = "block";
-						}
-
-						// When the user clicks on <span> (x), close the modal
-						span.onclick = function() {
-						    modal.style.display = "none";
-						}
-
-						// When the user clicks anywhere outside of the modal, close it
-						window.onclick = function(event) {
-						    if (event.target == modal) {
-						        modal.style.display = "none";
-						    }
-						}
-						</script>
+		
 						
 				</td>
 				</tr>
