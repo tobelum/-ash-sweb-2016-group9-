@@ -1,4 +1,4 @@
-0.2.<html>
+<html>
 	<head>
 		<title>Ashesi Health Center: View Patient's History</title>
 		<link rel="stylesheet" href="css/styles.css">
@@ -80,7 +80,7 @@
 
 			}
 			function searchfunction(){
-				var text=document.getElementById("txtbox").value;
+				var text=document.getElementById("txtbox").innerHTML;
 				viewDiagnosis(text);
 			}
 
@@ -120,12 +120,12 @@
 							<div id="divStatus" class="status">
 							 To Display Patient's History
 							</div>
-					<!--<form action="" method="GET">-->
+					<form action="" method="GET">
 						Enter Patient's ID:
 						<input type="text" id="txtbox" name="txtSearch">
 
-						<button id="button" onclick='searchfunction()'>Search</button>	
-					<!--</form>	-->
+						<span id="button" onclick='searchfunction()'><input value="Search" ></span>	
+					</form>	
 						</div>
 
 						<!--html ofr the popup-->
@@ -256,4 +256,5 @@
 		</table>
 	</body>
 </html>	
+
 
