@@ -37,6 +37,8 @@
 					currentobj=obj;
 			}
 
+
+
 		</script>
 	</head>
 	<body>
@@ -74,6 +76,38 @@
 						<span id="button"><input type="submit" value="Search" ></span>	
 					</form>	
 						</div>
+
+						<!--html ofr the popup-->
+						<h2>Modal Example</h2>
+
+						<!-- Trigger/Open The Modal 						<button id="myBtn">Open Modal</button>
+-->
+
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+						    <div class="modal-content">
+						        <span class="close">×</span>
+						  <table border='1'><tr bgcolor=$col1>
+																	<th><font color='white'>Date</font></th>
+																	<th><font color='white'>Temperature</font></td>
+																	<th><font color='white'>SP02</font></th>
+																	<th><font color ='white'>Pulse</font></th>
+																	<th><font color='white'>Blood Pressure</font></th>
+																	<th><font color ='white'>Complaints</font></th>
+																	<th><font color= 'white'>Treatments Given</font></th>
+																	<th><font color= 'white'>Remarks of Nurse</font></th>
+																</tr></table>
+						  <!-- Modal content -->
+
+
+
+						  </div>
+
+						</div>
+
+						
+
 <?php
 
 
@@ -180,7 +214,7 @@
 																		<th><font color='white'>Email Address</font></th>
 																		<th><font color='white'>View</font></th>
 																	</tr>";
-																	//dob,patientgroup.groupName,phone_number,email from patients, patientgroup
+																	
 											
 											while($row=$obj->fetch()){
 							                     // to check if the Patient's ID is valid
@@ -203,11 +237,12 @@
 															<td>{$row['groupName']}</td>
 															<td>{$row['phone_number']}</td>
 															<td>{$row['email']}</td>
-															<td><a href='viewDiagnosis(this,{$row['patient_id']})'>View</a></td>
+															<td>
+														<button id='myBtn'>view history</button></td>
 															
 														</tr>
 			
-														";	//<td>
+														";	//<td>a href='viewDiagnosis(this,{$row['patient_id']})'>View</a>
 															//	<span onclick='viewDiagnosis(this,{$row['patient_id']})'>more</span>
 															//</td>	
 													}
@@ -220,6 +255,33 @@
 				</td>
 			</tr>
 		</table>
+		<script>
+						// Get the modal
+						var modal = document.getElementById('myModal');
+
+						// Get the button that opens the modal
+						var btn = document.getElementById("myBtn");
+
+						// Get the <span> element that closes the modal
+						var span = document.getElementsByClassName("close")[0];
+
+						// When the user clicks the button, open the modal
+						btn.onclick = function() {
+						    modal.style.display = "block";
+						}
+
+						// When the user clicks on <span> (x), close the modal
+						span.onclick = function() {
+						    modal.style.display = "none";
+						}
+
+						// When the user clicks anywhere outside of the modal, close it
+						window.onclick = function(event) {
+						    if (event.target == modal) {
+						        modal.style.display = "none";
+						    }
+						}
+						</script>
 						
 				</td>
 				</tr>

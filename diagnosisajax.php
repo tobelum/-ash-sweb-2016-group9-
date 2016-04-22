@@ -39,11 +39,18 @@ function viewDiagnosisinfo(){
 		echo '{"result":0,"message":"Patient ID not correct"}';	
 		return;
 	}
+
+	echo '{"result":1,"diagnosis":[';
+
 	$result=$obj->fetch();
-		
-	echo '{"result":1,"diagnosis":';
+	while($result){
 		echo json_encode($result);
-	echo '}';
+	$result=$obj->fetch();
+	if($result!=false){
+		echo ",";
+		}
+	}
+	echo "]}";
 
 }
 
