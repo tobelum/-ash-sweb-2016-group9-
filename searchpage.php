@@ -123,7 +123,8 @@
 					<form action="" method="GET">
 						Enter Patient's ID:
 						<input type="text" id="txtbox" name="txtSearch">
-						<span id="button" onclick='searchfunction()'><input type="submit" value="Search" ></span>	
+
+						<span id="button" onclick='searchfunction()'><input value="Search" ></span>	
 					</form>	
 						</div>
 
@@ -163,80 +164,13 @@
 									
 									if(isset($_REQUEST['txtSearch'])){
 										$r=$_REQUEST['txtSearch'];
-									}
+									
 
 										$sub->searchDiagnosis($r);
 										$obj->searchPatients($r);
-									
-									/*
-										// calling the patient info before the diagnosis
-										$s=$_REQUEST['txtSearch'];
-										if(!$obj->searchPatients($s)){
-											echo "Error getting patient";
-											//return;
-										}
-										
-											while($row=$obj->fetch()){
-							                     // to check if the Patient's ID is valid
-							                    if(!$row)
-							                     {
-							                     	echo "Invalid Patient ID";
-							                     }
-							                    else
-							                    {
-												echo "<table>
-															<td><h3>{$row['patient_id']}</h3></td>
-															<td><h3>{$row['firstname']}</h3></td>
-															<td><h3>{$row['lastname']}</h3></td>
-														</table>
-													 ";
-												}
-											}
-								
-
-										if(!$sub->searchDiagnosis($r)){
-											echo "Error getting diagnosis";
-										}
-
-										$col1 = "#993333";
-										echo "<table border='1'><tr bgcolor=$col1>
-																	<th><font color='white'>Date</font></th>
-																	<th><font color='white'>Temperature</font></td>
-																	<th><font color='white'>SP02</font></th>
-																	<th><font color ='white'>Pulse</font></th>
-																	<th><font color='white'>Blood Pressure</font></th>
-																	<th><font color ='white'>Complaints</font></th>
-																	<th><font color= 'white'>Treatments Given</font></th>
-																	<th><font color= 'white'>Remarks of Nurse</font></th>
-																</tr>";
-											
-										
-										while($row=$sub->fetch()){
-											if(!$row){
-											echo "Invalid Patient ID";
-											}
-											else{
-												$col2="white";
-														echo "<tr bgcolor=$col2>
-																	<td>{$row['diagnosedate']}</td>
-																	<td>{$row['temp']}</td>
-																	<td>{$row['sp02']}</td>
-																	<td>{$row['pulse']}</td>
-																	<td>{$row['bloodPressure']}</td>
-																	<td>{$row['complaints']}</td>
-																	<td>{$row['treatment']}</td>
-																	<td>{$row['remark']}</td>
-
-																</tr>";
-															}
-													}
-
-												
-									
 									}
-									//if there is no patient id searched in the text box, then display list of patients
-									else{
-										*/
+									
+
 									
 										if(!$obj->getPatients()){
 											echo "Error getting patients";
