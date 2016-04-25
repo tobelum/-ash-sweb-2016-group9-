@@ -39,7 +39,7 @@ function viewDiagnosisinfo(){
 		echo '{"result":0,"message":"Patient ID entered is not correct"}';	
 		return;
 	}
-		//check if the query returns an empty result
+	//check if the query returns an empty result meaning its not in the database
 	$result=$obj->fetch();
 	if($result==false){
 		echo '{"result":0,"message":"Patient ID entered is not correct"}';

@@ -11,13 +11,11 @@
 					divStatus.innerHTML = "error while viewing Patient's History";
 					return;
 				}
-				console.log(xhr.responseText);
 				var obj=$.parseJSON(xhr.responseText);
 				if(obj.result==0){
 					divStatus.innerHTML=obj.message;
 					console.log(obj.message);	
 				}else{
-					// console.log(obj.message);
 					divStatus.innerHTML="View Patient's History";
 					// Get the modal
 					var modal = document.getElementById('myModal');
@@ -104,7 +102,7 @@
 							<button id="button" onclick='searchfunction()'>Search</button>	
 						</div>
 
-						<!--html ofr the popup-->
+						<!--html for the popup-->
 						<!-- The Modal -->
 						<div id="myModal" class="modal">
 						    <div class="modal-content">
@@ -146,6 +144,7 @@
 			if(!$row){
 				echo "Invalid Patient ID";
 			}else{
+				//display the patients and their information in the table
 				$col2="white";
 				echo "<tr bgcolor=$col2>
 						<td>{$row['patient_id']}</td>
