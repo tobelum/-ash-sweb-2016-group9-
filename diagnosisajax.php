@@ -36,21 +36,24 @@ function viewDiagnosisinfo(){
 	$row=$obj->searchDiagnosis($patientid);
 
 	if($row==false){
-		echo '{"result":0,"message":"Patient ID not correct"}';	
+		echo '{"result":0,"message":"Patient ID entered is not correct"}';	
 		return;
 	}
-
-	echo '{"result":1,"diagnosis":[';
-
+		//check if the query returns an empty result
 	$result=$obj->fetch();
-	while($result){
-		echo json_encode($result);
-	$result=$obj->fetch();
-	if($result!=false){
-		echo ",";
+	if($result==false){
+		echo '{"result":0,"message":"Patient ID entered is not correct"}';
+	}else{
+		echo '{"result":1,"diagnosis":[';
+		while($result){
+			echo json_encode($result);
+			$result=$obj->fetch();
+			if($result!=false){
+				echo ",";
+			}
 		}
+		echo "]}";
 	}
-	echo "]}";
 
 }
 
