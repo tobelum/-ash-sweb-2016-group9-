@@ -1,10 +1,34 @@
 <html>
+    <!--@Author: Jesse Akosa
+        username: jesse.akosa
+        id#: 60702017
+        Program: This program is the ajax client side.It calls the ad patient function from the server side and holds the html form to interact           with the user-->
+    
 	<head>
+        
 		<title>Ashesi Health Center: Update Patient's Information</title>
 		<link rel="stylesheet" href="css/styles.css">
-		
+
 		<script type="text/javascript">
-			
+            
+             // function to validate patient ID
+             
+            function validateID(patientID)
+            {
+                var rgText= /([0-9]){0,9}/;
+                
+                if(!rgText.test(patientID))
+                {
+                    errorMsg.innerHTML="Patient ID is not recognized";
+                    return false;
+                }
+                return true;
+            }
+                
+             
+            
+            }
+            //Creating an ajax complete function  
 			function addPatientComplete(xhr,status){
 				if(status!="success"){
 					divStatus.innerHTML="error while adding a new Patient";
@@ -14,13 +38,18 @@
 				
 				}
 			
-			
+			//ajax function that calls the add patient function from the server side
             function addPatients (patientID,username,firstname,lastname,gender,nationality,insurance,dob,group,phone,email){
+                
+                //Setting ID to variables and preventing null fields by the user 
                 if($("#ID").val() != ""){
                     var patientID = $( "#ID" ).val();
+                      validateID(patientID);
+                
+                    return;
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT ID");
-                    return;
+                    return false;
                 }
                 
                 if($("#usename").val() != ""){
@@ -52,35 +81,37 @@
                 }
             
 			    if($("#nat").val() != ""){
-                    var firstname = $( "#nat" ).val();
+                    var nationality = $( "#nat" ).val();
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT NATIONALITY");
                     return;
                 }
                 
                 if($("#ins").val() != ""){
-                    var firstname = $( "#ins" ).val();
+                    var insurance = $( "#ins" ).val();
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT INSURANCE TYPE");
                     return;
                 }
             
                 if($("#dob").val() != ""){
-                    var firstname = $( "#dob" ).val();
+                    var dob = $( "#dob" ).val();
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT DATE OF BIRTH");
                     return;
                 }
                 
                 if($("#phone").val() != ""){
-                    var firstname = $( "#phone" ).val();
+                    var phone = $( "#phone" ).val();
+                   
+                    return;
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT PHONE NUMBER");
                     return;
                 }
                 
                 if($("#email").val() != ""){
-                    var firstname = $( "#email" ).val();
+                    var email = $( "#email" ).val();
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT EMAIL");
                     return;
@@ -89,16 +120,12 @@
              var group = $( "#group" ).val();
              
                 
-				var ajaxPageUrl="addPatientServer.php?cmd=1&pd="+patientID+"&un="+username+"&fn="+firstname+"&ln="+lastname+"&gn="+gender+"&nt="+nationality+"&it="+insurance+"&db="+dob+"&gr="+group+"&pn="+phone+"&em="+email;
+				var ajaxPageUrl="addPatientServer.php?           cmd=1&pd="+patientID+"&un="+username+"&fn="+firstname+"&ln="+lastname+"&gn="+gender+"&nt="+nationality+"&it="+insurance+"&db="+dob+"&gr="+group+"&pn="+phone+"&em="+email;
                 
 				$.ajax(ajaxPageUrl,
 {async:true,complete:addPatientComplete	}	
 				);
 			}
-			
-			
-			
-			
 			
 			
 			
@@ -108,6 +135,7 @@
 			
 		</script>
       <style>
+<!--Form for the add patient functional requirement-->          
 form { width: 400px; }
 
 label { float: left; width: 150px; }
@@ -121,16 +149,18 @@ input[type=text] { float: left; width: 250px; }
 </style>
 	</head>
 	<body>
+    
         <table>
 			<tr>
 				<td colspan="2" id="pageheader">
 				<div id="div7"> <img src="logo.png" height="60"/> </div>
 					<font color="white">Ashesi Health Center</font>
 				<ul>
+                <!--Links to important websites-->    
 			  <li><a href="">Home</a></li>
 			  <li><a href="">Edit Patient</a></li>
 			  <li><a href="">View Patient</a></li>
-			  <li><a href="">Add New Patient</a></li>
+			  <li><a href="addPatientajax.php">Add New Patient</a></li>
 			  <li><a href="">Add New Diagnosis</a></li>
 		      <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
 			</ul>
@@ -138,7 +168,7 @@ input[type=text] { float: left; width: 250px; }
 
 			</tr>
 			<tr>
-				<!--Links to important websites-->
+				
 				
 				<td id="content">
 						<div id="divPageMenu">
