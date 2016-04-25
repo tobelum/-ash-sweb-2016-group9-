@@ -11,9 +11,6 @@
 		case 1:
 			editPatient(); 			//if command=1 update Patient's info
 			break;
-		case 2:
-			searchPatients() ;		//if command=2 search pateint
-			break;
 		default:
 			echo "wrong command";	//change to json message
 			break;
@@ -34,18 +31,18 @@
 		 	&&(!isset($_REQUEST['phone_number']))&&(!isset($_REQUEST['email']))&&(!isset($_REQUEST['group_name'])))
 		 	echo '{"result": 0 "message": "The information needed to update has not been provided"}';
 
-		 //Store variables for the URL
-		  $patientID = $_REQUEST['patientID'];
-		  $username=$_REQUEST['username'];
-		  $firstname=$_REQUEST['firstname'];
-		  $lastname=$_REQUEST['lastname'];
-		  $gender=$_REQUEST['gender'];
-		  $nationality=$_REQUEST['nationality'];
-		  $insurance_type=$_REQUEST['insurance_type'];
-		  $dob=$_REQUEST['dob'];
-		  $phone_number=$_REQUEST['phone_number'];
-		  $email=$_REQUEST['email'];
-		  $group_name=$_REQUEST['group_name'];
+		 		//Store variables for the URL
+		  		$patientID = $_REQUEST['patientID'];
+		  		$username=$_REQUEST['username'];
+		  		$firstname=$_REQUEST['firstname'];
+		  		$lastname=$_REQUEST['lastname'];
+		 	    $gender=$_REQUEST['gender'];
+		  		$nationality=$_REQUEST['nationality'];
+		 	 	$insurance_type=$_REQUEST['insurance_type'];
+		  		$dob=$_REQUEST['dob'];
+		  		$phone_number=$_REQUEST['phone_number'];
+		  		$email=$_REQUEST['email'];
+		  		$group_name=$_REQUEST['group_name'];
 			
 			//Create an object of the patients class
 			include_once("patients.php");
@@ -64,60 +61,4 @@
 				echo '{"result": 1, "message": "Patient\'s information sucessfully updated"}';
 			}				
 	}
-
-
-	function searchPatients(){
-
-			include_once("patients.php");
-			// check if there is any any input in the search box
-			if (!isset($_REQUEST['search'])) {
-				echo '{"result": 0 "message": "There is nothing to search for"}';
-				//echo "0";
-				exit();
-		 	}	
-		 	//Store search for the URL
-		 	$search = $_REQUEST['search'];
-		 	// create an object of patients
-			$patient = new patients();
-
-			$row = $patient -> searchPatients($search);
-			
-			if ($row==false){
-				echo '{"result":0,"message":"input has not been provided"}';
-				return;
-			}
-
-			else{
-				$result=$patient->fetch();
-
-				if($result==false){
-					echo '{"result":0,"message":"No patient found"}';
-				}else{ 
-				echo '{"result":1,"user":[';
-				while($result)
-				echo json_encode($result);
-
-				$result=$obj->fetch();
-				if($result!=false){
-					echo ',';
-				}
-				}
-				echo "}]";
-			}
-
-	}
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
