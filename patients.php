@@ -1,4 +1,18 @@
 <?php
+/**
+ *The main purpose of this page is to to provide the functions to be called by the Ajax.php and patientsPageAjax.php.
+ *this page queries the databse inorder to get information.
+ *This page includes the following functions:
+ *searchPatients() - Which is used to search for patients in the database.
+ *getPatients() - Which is used to get the patients from the database.
+ *editPatient() - Which enables the nurse to update the information in the database.
+ *
+ * @summary   This file basically queries the database.
+ *
+ *@access public
+ */
+
+
      include_once("adb.php");
      
      /**
