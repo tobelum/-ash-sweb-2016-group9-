@@ -84,50 +84,39 @@ if (!isset($_SESSION['id'])) {
 						For-->
 		
 						<center>
-						
-				 <label for="pid"> Patient ID</label><br>
-				 <input type = "text" id = "pid" value= "<?php echo $_SESSION['id']?>" readonly><br>
+					<table>	
+				 <tr> <td><label for="pid"> Patient ID</label></td>
+				 <td><input type = "text" id = "pid" value= "<?php echo $_SESSION['id']?>" readonly></td></tr>
 				 
-				<label for="date"> Date </label><br>           
-				<input type = "date" id = "date"><br>
+				<tr> <td><label for="date"> Date </label></td>           
+				<td><input type = "date" id = "date"></td></tr>
 
-				<label for="temp"> Temperature </label><br> 
-				<input type = "text" id = "temp"><br>
+				<tr> <td><label for="temp"> Temperature </label></td> 
+				<td><input type = "text" id = "temp"></td></tr>
 
-				<label for="sp"> SpO2 </label><br>
-				<input type = "text" id = "sp"><br>
+				<tr> <td><label for="sp"> SpO2 </label></td>
+				<td><input type = "text" id = "sp"></td></tr>
 
-				<label for="pulse"> Pulse </label><br> 
-				<input type = "text" id = "pulse"><br>
+				<tr> <td><label for="pulse"> Pulse </label></td> 
+				<td><input type = "text" id = "pulse"></td></tr>
 
-				 <label for="bp"> Blood Pressure </label><br>
-				<input type = "text" id = "bp"><br>
+				 <tr> <td><label for="bp"> Blood Pressure </label></td>
+				<td><input type = "text" id = "bp"></td></tr>
 
-				<label for="comp">Complaint </label><br>
-				<input type = "text" id = "comp"><br>
+				<tr> <td><label for="comp">Complaint </label></td>
+				<td><input type = "text" id = "comp"></td></tr>
 
-				<label for="treatment"> Treatment </label><br> 
-				<input type = "text" id = "treatment"><br>
+				<tr> <td><label for="treatment"> Treatment </label></td> 
+				<td><input type = "text" id = "treatment"></td></tr>
 
-				<label for="rmk">Remark </label><br>
-				<input type = "text" id = "rmk"><br>
+				<tr> <td><label for="rmk">Remark </label></td>
+				<td><input type = "text" id = "rmk"></td></tr>
+				</table>
 
 						<button onclick ="addDiagnosis()">Add</button><br><br>
-			</center>			
-						
-	<center>			
-<?php
-		
-		include_once("nurse.php");
-		$obj = new nurse();
-		$history = $obj->getPatientHistory($_SESSION['id']);
-		if (!$history) {
-			header("Location: Diagnosis.php"); 
-			
-		}
-		else {
-			
-			echo "<table border = '1' >
+			</center>
+<center>
+	<table border = '1' >
 		<tr bgcolor = #993333>
 		<th><font color = white> Date </font></th>
 		<th><font color = white> Patient's ID </font></th>
@@ -138,7 +127,19 @@ if (!isset($_SESSION['id'])) {
 		<th><font color = white> Complaints </font></th>
 		<th><font color = white> Treatment </font></th>
 		<th><font color = white> Remark/Review </font></th>
-		</tr>";
+		</tr>			
+						
+	</center>			
+<?php
+		
+		include_once("nurse.php");
+		$obj = new nurse();
+		$history = $obj->getPatientHistory($_SESSION['id']);
+		if (!$history) {
+			header("Location: Diagnosis.php"); 
+			
+		}
+		else {
 			$row = $obj->fetch();
 			while ($row) {
 				echo "<tr bgcolor = white>
@@ -157,7 +158,7 @@ if (!isset($_SESSION['id'])) {
 		}
 
 ?>
-</center>
+
 </div>
 </td>
 </tr>
