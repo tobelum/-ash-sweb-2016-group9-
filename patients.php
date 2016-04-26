@@ -40,7 +40,7 @@
 */
      	function getPatients($filter=false){
 
-     	  $strQuery = "select patient_id, username,firstname,lastname,gender,nationality,insurance_type,dob,patientgroup.groupName,phone_number,
+     	  $strQuery = "select patient_id, username,firstname,lastname,gender,nationality,insurance_type,dob,patientgroup.groupName,phone_number,groupID,group_name,
             email from patients left join patientgroup on patients.group_name=patientgroup.groupID"; 
                if($filter!=false){
                     $strQuery=$strQuery . " where $filter";
