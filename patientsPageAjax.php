@@ -1,5 +1,18 @@
 <! doctype html>
 <?php
+/**
+ *The main purpose of this file is to enable the nurse to modify the thr personal information of her patients. 
+ *This file prints out a table displaying all the patients information. The nurse can search for patients using the search box.
+ *the patients information that is displayed includes the:
+ *PatientID, Username, First Name, Last Name, Gender, Nationality, Insurance Type, Date of Birth, Phone Number, Email, Group Name.
+ *At the end of every table row an Update button has been place which when pressed opens a modal which entails a form to allow the 
+ *nurse to modify or update information of that particular student.
+ *When the update button is pressed the page is automatically reloaded, the change is completed and can be see by the nurse on the table
+ *
+ * @summary   This file basically allows the nurse to update the information of that particular patient.
+ *
+ *@access protected
+ */
 //  session_start();
   //if(!isset($_SESSION['USER'])){
   	//header("location:login.php");
@@ -12,9 +25,17 @@
 		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 		<script type="text/javascript">
 
-			function editPatientComplete(xhr, status) {
+
+			
+			/**
+ 			* @function this is the editPatientComplete() which  is passed after the editPatient() is called after and passed a json message on whether 
+ 			* patietnt has been added or not.
+			*/
+			function editPatientComplete(xhr, status, email) {
 				if (status!="success") {
 					divStatus.innerHTML = "Error while updating patient";
+
+					
 					
 					return;
 				}
@@ -29,7 +50,9 @@
 						}
 			} 
 
-
+			/**
+ 			* @function this is the editPatient() and is called when the update button is pressed the form in the modal and calls the editpatient() in the ajax page
+			*/
 			function editPatient(val,modal){
 
 				modal.style.display="none";
@@ -54,6 +77,8 @@
 			   			 complete:editPatientComplete
 			   			}
 					);
+
+
 
 			}
 
@@ -300,3 +325,6 @@
 <?php
 //  session_destroy();
 ?>
+
+
+ 
