@@ -89,4 +89,21 @@
 			return;
 		  }
 		}
+		
+	
+
+
+	/**
+		*Connect to database 
+	*/
+		function getuserSession(){
+		  if(!$_SESSION["username"]){
+			echo '{"result": 0, "message": "No session stored"}';
+			return;  
+		  }
+		  echo '{"result": 1, "message": "'.$_SESSION["username"].'"}';
+
+		  return;
+
+		}
 ?>
