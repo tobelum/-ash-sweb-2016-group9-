@@ -22,5 +22,6 @@
 			enterValidUser();
 		</script>
 		<?php include_once("clinicHomePage.php") ?>
+	
 	</body>
 </html>

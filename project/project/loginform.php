@@ -1,6 +1,6 @@
 <?php
 	include_once("adb.php");
-
+	session_start();
 	//check username, id and password sent from the form
 	if(isset($_POST['username'])&&isset($_POST['password'])){
 		$username=$_POST['username'];
@@ -29,7 +29,8 @@
 			}
 		}else{ // Mysql_num_row is counting table row
 			
-			echo 'You must login with your username and password. <a href="loginPage.php">Go to loginPage </a>';
+			echo 'Username and password cannot be empty. Clinck on this link to enter it again
+					. <a href="loginPage.php">Go to loginPage </a>';
 			//header("location:loginPage.php");
 		}
 	}	
@@ -39,7 +40,7 @@
 	<body>
 		<script type="text/javascript" language="javascript">
 			function enterValidUser(){
-				alert("You must login with your username and password");
+				alert("You must login with your valid username and password");
 				header("location:loginPage.php");
 			}
 			enterValidUser();

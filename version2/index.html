@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<title> User Interface Design </title>
+		<link rel="stylesheet" href="style.css">
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<header id="pageheader" width:100%, height:100%>
+			<div>
+			<h1 style="text-align:left; font-size:80%;">You are logged in as UserUnknown</h1>
+			<h2 style="color:black; font-family:castellar; font-size:200%; text-align:center;">ASHESI HEALTH CENTER</h2>
+			</div>
+		</header>
+		<table id="menubar", width:100%, height:100%><tr>
+				<td class="menuitem">Home</td>
+				<td class="menuitem">New Patient</td>
+				<td class="menuitem">View Patient's history</td>
+				<td class="menuitem">Edit Patient</td>
+				<td class="menuitem">Add Diagnosis</td>
+				<td class="menuitem">Log Out</td>
+			</tr>
+		</table>
+		<table>
+			<tr id="space"></tr>
+			<tr>
+				<td id="sidebar">
+					<p class="menuitem">Calendar</p>
+					<p class="menuitem">More Info</p>
+					<p class="menuitem">Send Email</p>
+					<p class="menuitem">Dictionary</p>
+				</td>
+				<td class="sidespace"></td>
+				<td id="content">
+					<div id="titlebar">EDIT PATTIENT PERSONAL RECORD</div>
+					<div id="space"></div>
+					<div id="contentarea">
+					
+					
+						<div id="divContent">
+						<form action="" method="GET">
+				   <div>Patient's ID : <input type="text" name="patientID" value="5098285" readonly/> </div>  
+				   <br>               
+				   <div> Username: <input type="text" name="username" value="roslynne.amoah"/></div>
+				   <br> 
+				   <div>First Name: <input type="text" name="firstname" value="Roslynne"/></div>
+				   <br> 
+				   <div>Last Name: <input type="text" name="lastname" value="Amoah"/></div>
+				   <br> 
+				   <div>Gender: <select name="gender"><option value="1">Male</option>
+													  <option value="2">Female</option>
+				   </select>
+				   </div>
+				   <br>                  
+				   <div> Nationality: <input type="text" name="nationality" value="Ghanaian"/></div>
+				   <br> 
+				   <div>Insurance Type: <select name="insurance_type"><option value="1">MedEx</option>
+																	  <option value="2">NHIS</option>
+				   </select>
+				   </div>
+				   <br> 
+				   <div>Date of Birth: <input type="date" name="dob" value="1994/02/03"/></div>
+				   <br> 
+				   <div>Phone Number: <input type="text" name="phone_number" value="0298472845"/></div>
+				   <br> 
+				   <div>Email Address: <input type="text" name="email" value="roslynne.amoah@yahoo.com"/></div>
+		
+				   <div>Patient's Group: 
+						<select name="group_name">
+	<?php
+		 //a call to the class
+		 include_once("patientGroup.php");
+		 $group_name= new patientGroup();
+		 $result=$group_name->getAllPatientGroup();
+		 //echo $strQuery;
+		 if($result==false){
+			  //
+			  echo "result is false";
+		 }else{
+			  while($row=$group_name->fetch()){
+				   echo "<option value='{$row['groupID']}'>{$row['groupName']}</option>";
+			  }
+		 }
+		 
+		 //display in loop
+	?>                  
+						</select>
+				   </div>
+
+
+				<Script>
+					function updatePatient(){
+						alert("You have successfully update the patient Info")
+					}
+					//updatePatient();
+				</script>
+
+				   <input type="submit" value="Update" name="update" onClick="updatePatient()"> </input>
+			</form>              
+
+
+					</div>
+				</div>
+
+				</td>
+			</tr>
+			<tr id="space"></tr>
+		</table>
+		<footer id="pagefooter">1 University Avenue Berekuso, Eastern Region. Ghana</footer>
+	</body>
+</html>
