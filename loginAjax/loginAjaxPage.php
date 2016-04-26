@@ -10,7 +10,41 @@
          <!--
 			
          //-->
-
+				 /*
+		 * This is an ajax function that sends request to the browser
+		 */
+		 function sendAjaxRequest(myUrl){
+			 	
+			var obj = $.ajax({url: myUrl, async: false});
+		
+			var result= $.parseJSON(obj.responseText);
+				//alert(result);
+		
+			return result;
+		 }
+		 /*
+		  * Login function that check the user name and password
+		  * entered and display result on the browser for the user to see
+		  */
+		 function userLogin(){
+			 //alert("clicked");
+			 var username=$("#username").val();
+			 var password=$("#password").val();
+			 var url="controller.php?cmd=1&username="+username+"&password="+password;
+			//prompt("Url",url		);
+			var obj = sendAjaxRequest(url);
+			//alert(obj.result);
+			if(obj.result==0){
+				//alert(result.message);
+				alert("Please enter a valid username and password");
+				window.location="loginAjaxPage.php";
+			}
+			else{
+				//alert(result.message);
+				alert("You have succesfully logged in");
+				window.location="newclinicHomePage.php";
+			}
+		}
       </script>
 	</head>
 	<body>
