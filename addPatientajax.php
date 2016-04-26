@@ -11,31 +11,17 @@
 
 		<script type="text/javascript">
             
-             // function to validate patient ID
-             
-            function validateID(patientID)
-            {
-                var rgText= /([0-9]){0,9}/;
-                
-                if(!rgText.test(patientID))
-                {
-                    errorMsg.innerHTML="Patient ID is not recognized";
-                    return false;
-                }
-                return true;
-            }
-                
-             
             
-            }
+            
             //Creating an ajax complete function  
 			function addPatientComplete(xhr,status){
 				if(status!="success"){
-					divStatus.innerHTML="error while adding a new Patient";
-					return;
+				divStatus.innerHTML="error while adding a new Patient";
+				return;
+					
 				}
-				add();
-				
+				 alert("Added patient");
+                 return;
 				}
 			
 			//ajax function that calls the add patient function from the server side
@@ -44,12 +30,11 @@
                 //Setting ID to variables and preventing null fields by the user 
                 if($("#ID").val() != ""){
                     var patientID = $( "#ID" ).val();
-                      validateID(patientID);
-                
-                    return;
+                      
+    
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT ID");
-                    return false;
+                    
                 }
                 
                 if($("#usename").val() != ""){
@@ -103,8 +88,6 @@
                 
                 if($("#phone").val() != ""){
                     var phone = $( "#phone" ).val();
-                   
-                    return;
                 } else {
                  alert("PLEASE INCLUDE THE PATIENT PHONE NUMBER");
                     return;
@@ -129,9 +112,7 @@
 			
 			
 			
-			function add(){
-                alert("Added patient");
-			}
+			
 			
 		</script>
       <style>
@@ -158,10 +139,10 @@ input[type=text] { float: left; width: 250px; }
 				<ul>
                 <!--Links to important websites-->    
 			  <li><a href="">Home</a></li>
-			  <li><a href="">Edit Patient</a></li>
-			  <li><a href="">View Patient</a></li>
+			  <li><a href="patientsPageAjax.php">Edit Patient</a></li>
+			  <li><a href="searchpage.php">View Patient</a></li>
 			  <li><a href="addPatientajax.php">Add New Patient</a></li>
-			  <li><a href="">Add New Diagnosis</a></li>
+			  <li><a href="clinic.php">Add New Diagnosis</a></li>
 		      <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
 			</ul>
 				</td>
