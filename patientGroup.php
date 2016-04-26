@@ -1,6 +1,15 @@
 <?php
 /**
-*/
+ *The main purpose of this page is to to provide the functions to be called by the Ajax.php and patientsPageAjax.php.
+ *this page queries the databse ino rder to get information.
+ *This page includes the following:
+ *patientgroup() - Which is used to get the patients group from the database.
+ *
+ * @summary   This file basically queries the database.
+ *
+ *@access public
+ */
+
 include_once("adb.php");
 /**
 *patientGroup class
@@ -30,3 +39,4 @@ class patientGroup extends adb{
 }
 
 ?>
+
