@@ -35,12 +35,12 @@
 					<div id="divContent">
 						<div id="divSearch">
 					<form action="" method="GET">
-						Ashesi Health Center 
+						<p style= "text-align:center; font-size:180%;">Ashesi Health Center </p>
 					</form>	
 						</div>
 
 				<form action="" method="GET">
-						<p style= "text-align:Justify; font-size:100%;" >
+						<p style= "text-align:Justify; font-size:180%;" >
 							The Ashesi Health Center was established to meet the growing health needs of the student on campus.
 							As a result of the increasing number of students as well as staff, health records can therefore not
 							be kept manually as mostly done in hospitals and clinics across the country. Hence the need for

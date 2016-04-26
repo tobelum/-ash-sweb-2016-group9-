@@ -52,15 +52,15 @@
 				<td colspan="2" id="pageheader">
 				<div id="div7"> <img src="logo.png" height="60"/> </div>
 					<font color="white">Ashesi Health Center</font>
-			<!--	<ul>
+				<ul>
 					<!--Links to important websites-->
 			 <!-- <li><a href="newclinicHomepage.php">Home</a></li> -->
 			<!--  <li><a href="">Edit Patient</a></li> -->
 			 <!-- <li><a href="">View Patient</a></li> -->
 			<!--  <li><a href="">Add New Patient</a></li> -->
 			<!--  <li><a href="">Add New Diagnosis</a></li> -->
-			<!--  <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2> -->
-			<!--</ul> -->
+			<li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2> 
+			</ul> 
 			
 				</td>
 
@@ -92,7 +92,7 @@
 						</div></h2> 
 						
 				</form> 
-				<!--<div id= "ack">Your result is shown here</div> -->
+	
 					</div>
 				</td>
 			</tr>
