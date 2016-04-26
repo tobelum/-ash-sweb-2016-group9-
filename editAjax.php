@@ -1,4 +1,16 @@
 <?php
+
+/**
+ *The main purpose of this page is to to provide the ajax comamand for the function in the patientsPageAjax.php
+ *The Ajax command calls the patients.php class and creates an object of that class and enables the function to be used
+ *inputs into the textboxes provided in the patientsPageAjax.php are as follows
+ *PatientID, Username, First Name, Last Name, Gender, Nationality, Insurance Type, Date of Birth, Phone Number, Email and Group Name
+ *and would be passed throught he url
+ *
+ * @summary   This file basically allows the the connection between the patients.php and patientsPageAjax.php.
+ *
+ *@access public
+ */
 	//check command
 	if (!isset($_REQUEST['command'])) {
 		echo "command has not been provided";
@@ -36,7 +48,7 @@
 		  		$username=$_REQUEST['username'];
 		  		$firstname=$_REQUEST['firstname'];
 		  		$lastname=$_REQUEST['lastname'];
-		 	    $gender=$_REQUEST['gender'];
+		 	        $gender=$_REQUEST['gender'];
 		  		$nationality=$_REQUEST['nationality'];
 		 	 	$insurance_type=$_REQUEST['insurance_type'];
 		  		$dob=$_REQUEST['dob'];
