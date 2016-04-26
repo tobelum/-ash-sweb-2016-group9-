@@ -1,5 +1,4 @@
 
-
 <! doctype html>
 <html>
 	<head>
@@ -53,15 +52,16 @@
 				<td colspan="2" id="pageheader">
 				<div id="div7"> <img src="logo.png" height="60"/> </div>
 					<font color="white">Ashesi Health Center</font>
-				<ul>
+			<!--	<ul>
 					<!--Links to important websites-->
-			  <li><a href="newclinicHomepage.php">Home</a></li>
-			  <li><a href="">Edit Patient</a></li>
-			  <li><a href="">View Patient</a></li>
-			  <li><a href="">Add New Patient</a></li>
-			  <li><a href="">Add New Diagnosis</a></li>
-			  <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
-			</ul>
+			 <!-- <li><a href="newclinicHomepage.php">Home</a></li> -->
+			<!--  <li><a href="">Edit Patient</a></li> -->
+			 <!-- <li><a href="">View Patient</a></li> -->
+			<!--  <li><a href="">Add New Patient</a></li> -->
+			<!--  <li><a href="">Add New Diagnosis</a></li> -->
+			<!--  <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2> -->
+			<!--</ul> -->
+			
 				</td>
 
 			</tr>
@@ -82,13 +82,13 @@
 				<form name= "myForm"> 
 						<div id="div2"> <h2 class="h1color"> 
 						<div id="div3"> <h2 class="h1color"> 
-						<strong> Username</strong>:<input type="username" id="username" name="username" value=""> 
+						<center> Username</strong>:<input type="username" id="username" name="username" value=""> </center>
 						</h2> </div>
 						<div id="div4"> <h2 class="h1color"> 
-						<strong> Password</strong>:<input type="password"  id="password" name="password" value=""> 
+						<center> Password</strong>:<input type="password"  id="password" name="password" value=""> </center> 
 						</h2> </div>
 						<div id="div5"> <h2 class="h1color"> 
-						<button type="button" onclick="	userLogin()" > Login</button>
+						<center><button type="button" onclick="	userLogin()" > Login</button> </center>
 						</div></h2> 
 						
 				</form> 
