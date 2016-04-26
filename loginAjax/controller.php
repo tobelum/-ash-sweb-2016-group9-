@@ -74,5 +74,19 @@
 
 		}
 
-	
+	/**
+		*Logout fumction that enable a user to sign out 
+	*/
+		function logout(){
+
+		  if(!$_SESSION['username']){
+			echo '{"result": 0, "message": "User not loged in"}';
+			return;
+		  }
+		  else{
+			session_destroy();
+			echo '{"result": 1, "message": "Loged out successfully"}';
+			return;
+		  }
+		}
 ?>
