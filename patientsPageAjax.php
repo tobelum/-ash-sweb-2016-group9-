@@ -12,28 +12,27 @@
 		<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 		<script type="text/javascript">
 
-
-
 			function editPatientComplete(xhr, status) {
-				if (status!="sucess") {
+				if (status!="success") {
 					divStatus.innerHTML = "Error while updating patient";
+					
 					return;
 				}
 				var obj=$.parseJSON(xhr.responseText);
 						if(obj.result==0){
 							  divStatus.innerHTML= obj.message;	
 						}else{
+							
 							  divStatus.innerHTML="Patient Updated";
-
+							  alert("You have successfully update the patient Info");
+							  location.reload();
 						}
-						modal.style.display="none";
 			} 
 
 
+			function editPatient(val,modal){
 
-
-			function editPatient(val){
-
+				modal.style.display="none";
  				var vpatientID=document.getElementById("patientID"+val).value;
  				var vusername=document.getElementById("username"+val).value;
  				var vfirstname=document.getElementById("firstname"+val).value;
@@ -45,28 +44,23 @@
  				var vgroupName=document.getElementById("group_name"+val).value;
  				var vphone_number=document.getElementById("phone_number"+val).value;
  				var vemail=document.getElementById("email"+val).value;
- 				
- 				
-
 
 				var pageURL = "editAjax.php?command=1&patientID="+vpatientID+"&username="+vusername+"&firstname="+vfirstname+ "&lastname="+vlastname
-							  +"&gender="+vgender+"&nationality="+vnationality+"&insurance_type="+vinsurance_type+"$dob="+vdob+ "&group_name="
-							  +vgroupName+"&phone_number="+vphone_number+"&email="+vemail;
+							  +"&gender="+vgender+"&nationality="+vnationality+"&insurance_type="+vinsurance_type+"&dob="+vdob+ "&group_name="
+							  +vgroupName+"&phone_number="+vphone_number+"&email="+vemail;	  
 					$.ajax(pageURL, 
 			   			{
 			   			 async:true, 
 			   			 complete:editPatientComplete
 			   			}
 					);
+
 			}
-
-
-
 
 		</script>
 	</head>
 	<body>
-		<div class="status" id="divStatus">Ready</div> 
+		<div class="status" id="divStatus"></div> 
 		<table>
 			<tr>
 				<td colspan="2" id="pageheader">
@@ -143,25 +137,7 @@
 		//call the database and check if the patient exists
 		$search = $_REQUEST['txtSearch'];
 		$result=$patients->searchPatients($search);
-		// if the patient exists print out patients personal in formation in the table	
-		while ($row=$patients->fetch()){
-		echo "<tr>
-				<td style = 'background-color: white '>{$row["patient_id"]}</td>
-				<td style = 'background-color: white '>{$row["username"]}</td>
-				<td style = 'background-color: white '>{$row["firstname"]}</td>
-				<td style = 'background-color: white '>{$row["lastname"]}</td>
-				<td style = 'background-color: white '>{$row["gender"]}</td>
-				<td style = 'background-color: white '>{$row["nationality"]}</td>
-				<td style = 'background-color: white '>{$row["insurance_type"]}</td>
-				<td style = 'background-color: white '>{$row["dob"]}</td>
-				<td style = 'background-color: white '>{$row["groupName"]}</td>
-				<td style = 'background-color: white '>{$row["phone_number"]}</td>
-				<td style = 'background-color: white '>{$row["email"]}</td>
-				<th style = 'background-color: white '><span>updatePation</a></th>
-			  </tr>";
-		}
 	}
-
 	 
 	// create an increment to change the value of modal and button each time the table loops				
 	$I=0;
@@ -199,7 +175,6 @@
    					</div>
    					<div class="modal-body">
    							<!-- Create a form in the modal in order to modify patients personal information-->
-							<!--<form action="" method="GET">-->
 				   				<div>Patient's ID : <input type="text" id="<?php echo "patientID".$I; ?>" name="patientID" value="<?php echo $row["patient_id"]; ?>" readonly/> </div>  
 				   				<br>               
 				   				<div> Username: <input type="text" id="<?php echo "username".$I; ?>" value="<?php echo $row["username"];?>"/></div>
@@ -226,15 +201,15 @@
 				   				  </select>
 				   				</div>
 				   				<br> 
-				   				<div>Date of Birth: <input type="text" id="<?php echo "dob".$I; ?>" value="<?php echo $row["dob"] ?>" pattern="/^(18|20)\d{2}$\/(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])/"/></div>
+				   				<div>Date of Birth: <input type="date" id="<?php echo "dob".$I; ?>" value="<?php echo $row["dob"] ?>" pattern="/^(18|20)\d{2}$\/(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])/"/></div>
 				   				<br>
 				   				<div>Phone Number: <input type="text" id="<?php echo "phone_number".$I; ?>" value="<?php echo $row["phone_number"] ?>"/></div>
 				   				<br> 
 				   				<div>Email Address: <input type="text" id="<?php echo "email".$I; ?>" value="<?php echo $row["email"] ?>"/></div>
 				   				<br> 
-				   				<div>Patient's Group::<?php $default_group_name = $row["groupName"]?>
+				   				<div>Patient's Group: <?php $default_group_name= $row["group_name"] ?>
 				   				  <select id="<?php echo "group_name".$I; ?>">
-    								<option value='<?php echo $default_group_name?>' selected='selected'><?php echo $default_group_name?></option>
+    								<option value='<?php echo $default_group_name?>' selected><?php echo $row["groupName"]?></option>
 									<?php
 									 //Call and create an object of the patientGroup class
 	 								include_once("patientGroup.php");
@@ -255,8 +230,8 @@
 				    			</div>
 				    			
 				   				
-				   		      <input type="submit" value="Update" name="update" onClick="editPatient(<?php echo $I ?>)"> </input>
-							<!--</form>--> 
+				   		      <button name="update" onClick="editPatient(<?php echo $I ?>, <?php echo "myModal".$I; ?>)">Update</button>
+
 
     				</div>
     				<div class="modal-footer">
@@ -322,3 +297,6 @@
 		</table>
 	</body>
 </html>	
+<?php
+//  session_destroy();
+?>
