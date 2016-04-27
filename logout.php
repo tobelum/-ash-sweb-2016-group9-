@@ -4,5 +4,4 @@
 	
 	include_once("loginAjaxPage.php");
 	
-	//header("Location: loginPage.php");
 ?>

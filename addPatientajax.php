@@ -137,14 +137,14 @@ input[type=text] { float: left; width: 250px; }
 				<div id="div7"> <img src="logo.png" height="60"/> </div>
 					<font color="white">Ashesi Health Center</font>
 				<ul>
-                <!--Links to important websites-->    
-			  <li><a href="">Home</a></li>
-			  <li><a href="patientsPageAjax.php">Edit Patient</a></li>
-			  <li><a href="searchpage.php">View Patient</a></li>
-			  <li><a href="addPatientajax.php">Add New Patient</a></li>
-			  <li><a href="clinic.php">Add New Diagnosis</a></li>
-		      <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
-			</ul>
+                    <!--Links to important websites-->
+              <li><a href="newclinicHomePage.php">Home</a></li>
+              <li><a href="patientsPageAjax.php">Edit Patient</a></li>
+              <li><a href="searchpage.php">View Patient</a></li>
+              <li><a href="addPatientajax.php">Add New Patient</a></li>
+              <li><a href="clinic.php">Add New Diagnosis</a></li>
+              <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
+            </ul>
 				</td>
 
 			</tr>
@@ -178,9 +178,9 @@ input[type=text] { float: left; width: 250px; }
                    
     <?php
         //a call to the class
-        include_once("patientGroups.php");
+        include_once("patientGroup.php");
         $usergroup= new patientGroup();
-        $result=$usergroup->getAllPatientGroups();
+        $result=$usergroup->getAllPatientGroup();
         //echo $strQuery;
         if($result==false){
             //

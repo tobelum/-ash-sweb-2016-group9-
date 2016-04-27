@@ -76,14 +76,14 @@
 				<div id="div7"> <img src="css/logo.png" height="60"/> </div>
 				<font color="white">Ashesi Health Center</font>
 				<ul>
-					<!--Links to the functional requirements in the meneu bar-->
-				  <li><a href="">Home</a></li>
-				  <li><a href="">Edit Patient</a></li>
-				  <li><a href="">View Patient</a></li>
-				  <li><a href="">Add New Patient</a></li>
-				  <li><a href="">Add New Diagnosis</a></li>
-				  <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
-				</ul>
+					<!--Links to important websites-->
+			  <li><a href="newclinicHomePage.php">Home</a></li>
+			  <li><a href="patientsPageAjax.php">Edit Patient</a></li>
+			  <li><a href="searchpage.php">View Patient</a></li>
+			  <li><a href="addPatientajax.php">Add New Patient</a></li>
+			  <li><a href="clinic.php">Add New Diagnosis</a></li>
+			  <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
+			</ul>
 				</td>
 			</tr>
 			<tr>

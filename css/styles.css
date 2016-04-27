@@ -30,12 +30,6 @@
     margin-left: 100px;
     text-align: center;
     font-size: 20px;
-	width: 1800px;
-	background-color: #993333;
-	height: 100px;
-	margin-left: -10px;
-	font-family: times;
-	text-align: center;
 }
 
 #pagefooter{
@@ -177,15 +171,19 @@ li2 a:hover {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #993333;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+    padding: 2px 16px;
+    width:600px; height: 300px; overflow: auto; padding:50px;
+    background-color:#e7d3dc;
+    }
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #993333;
     color: white;
 }
 

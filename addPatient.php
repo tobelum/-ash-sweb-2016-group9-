@@ -16,7 +16,7 @@ function addPatient () {
 
 function newPatient ($patientID ='none',$username='none',$firstname='none',$lastname='none',$gender='none',$nationality='none', $insuranceType='none',$dob='none',$group=0,$phoneNumber='none',$email='none'){
     
-    $strQuery = "INSERT INTO `patients` (`patient_id`, `username`, `firstname`, `lastname`, `gender`, `nationality`, `insurance_type`, `dob`, `group`, `phone_number`, `email`) VALUES ('$patientID', '$username', '$firstname', '$lastname', '$gender', '$nationality', '$insuranceType', '$dob', '$group', '$phoneNumber', '$email')";
+    $strQuery = "INSERT INTO `patients` (`patient_id`, `username`, `firstname`, `lastname`, `gender`, `nationality`, `insurance_type`, `dob`, `group_name`, `phone_number`, `email`) VALUES ('$patientID', '$username', '$firstname', '$lastname', '$gender', '$nationality', '$insuranceType', '$dob', '$group', '$phoneNumber', '$email')";
                                            
 return $this->query ($strQuery);
 
