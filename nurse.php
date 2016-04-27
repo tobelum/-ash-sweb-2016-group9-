@@ -1,5 +1,4 @@
 <?php
-
 include_once("adb.php");
 /**
 *Users  class
@@ -17,6 +16,21 @@ class nurse extends adb{
 	*/	
 	function patientExists($p_id) {
 		$query = "SELECT * FROM patients WHERE patient_id = '$p_id'";
+		$a =  $this->query($query);
+		 if (!$a) {
+			 echo '{"result":0, "message": "Patient does not exist"}';
+			 return;
+		 }
+		 $b = $this->fetch();
+		 if (!$b){
+			 echo '{"result:0, "message":"Could not fetch data"}';
+			 return;
+		 }
+		 return $b;
+	}
+	
+	function getPatientHistory($pid) {
+		$query = "SELECT * from diagnosis WHERE specificPatient_id =  '$pid' ORDER BY diagnosedate DESC";
 		return $this->query($query);
 	}
 	
@@ -46,8 +60,9 @@ class nurse extends adb{
 					treatment = '$treat',
 					remark = '$rmk',
 					specificPatient_id = '$p_id'";
+					
+					
 		return $this->query($strQuery);
 	} 
-
 }
 ?>
