@@ -46,6 +46,31 @@
 					</form>
 					
 					</center>
+					<?php
+include_once ("nurse.php");
+
+if (isset($_REQUEST['id'])) {
+	$pid = $_REQUEST['id'];
+	$nurse = new nurse();
+	$patientData = $nurse->patientExists($pid);
+	
+	//print_r($data);
+	
+	if (!$patientData) {
+		echo "Please Enter a Valid ID";
+		
+		
+	}
+	else {
+		session_start();
+		$_SESSION['id'] = $_REQUEST['id'];
+		$_SESSION['name'] = $patientData['username'];
+		header("Location: newNurseAjax.php");
+		}
+}
+
+?>
+					
 					
 							</tr>
 				
@@ -74,27 +99,4 @@
 
 
 
-<?php
-include_once ("nurse.php");
 
-if (isset($_REQUEST['id'])) {
-	$pid = $_REQUEST['id'];
-	$nurse = new nurse();
-	$patientData = $nurse->patientExists($pid);
-	
-	//print_r($data);
-	
-	if (!$patientData) {
-		echo "Please Enter a Valid ID";
-		
-		
-	}
-	else {
-		session_start();
-		$_SESSION['id'] = $_REQUEST['id'];
-		$_SESSION['name'] = $patientData['username'];
-		header("Location: newNurseAjax.php");
-		}
-}
-
-?>
