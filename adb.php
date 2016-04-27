@@ -60,5 +60,4 @@ class adb{
 		return $this->result->fetch_assoc();
 	}
 }
-
 ?>

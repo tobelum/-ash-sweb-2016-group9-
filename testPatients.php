@@ -1,5 +1,5 @@
 <?php
-include_once("patients.php");;
+include_once("patients.php");
 
 class testPatients extends PHPUnit_Framework_TestCase
 {
@@ -16,7 +16,16 @@ class testPatients extends PHPUnit_Framework_TestCase
 		
     }
 	
+    public function testEditPatient(){
+        $obj=new patients();
+		
+        $this->assertEquals(true, 
+		$obj->patientExists(
+			"84082017"				//status
+			));   
+			
+		$this->assertEquals(true,$obj->editPatient("84082017","roslynne.amoah","Roslynne","Amoah","Female","Ghanaian","NHIS","1994-02-17",2,"0261264795","roslynne.amoah@ashesi.edu.gh"));
+    }
 
-	
 }
 ?>
