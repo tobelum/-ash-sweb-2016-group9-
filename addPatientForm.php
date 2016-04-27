@@ -1,48 +1,60 @@
-<! doctype html>
-<html>
+		<! doctype html>
+		<html>
 	<head>
-		<title>Ashesi Health Center</title>
-		<link rel="stylesheet" href="css/style.css">
+		<title>Ashesi Health Center: Update Patient's Information</title>
+		<link rel="stylesheet" href="css/styles.css">
 		<script>
 			<!--add validation js script here
 		</script>
-		<style>
+		
+		 <style>
 
-				form { width: 400px; }
+form { width: 400px; }
 
-				label { float: left; width: 150px; }
+label { float: left; width: 150px; }
 
-				input[type=text] { float: left; width: 250px; }
+input[type=text] { float: left; width: 250px; }
 
-				.clear { clear: both; height: 0; line-height: 0; }
+.clear { clear: both; height: 0; line-height: 0; }
 
-				.floatright { float: right; }
+.floatright { float: right; }
 
-		</style>
+</style>
 	</head>
 	<body>
 		<table>
 			<tr>
 				<td colspan="2" id="pageheader">
-				<div id="div7"> <img src="images/logo.jpg" height="80"/> </div>
-					<font color="white"> Ashesi Health Center</font>
+				<div id="div7"> <img src="logo.png" height="60"/> </div>
+					<font color="white">Ashesi Health Center</font>
+				<ul>
+			  <li><a href="">Home</a></li>
+			  <li><a href="">Edit Patient</a></li>
+			  <li><a href="">View Patient</a></li>
+			  <li><a href="">Add New Patient</a></li>
+			  <li><a href="">Add New Diagnosis</a></li>
+		      <li2 ><a href="logout.php"><font color = 'white'>Logout</font> </a></li2>
+			</ul>
 				</td>
+
 			</tr>
 			<tr>
 				<!--Links to important websites-->
-				<td id="mainnav">
-					<div class="menuitem"><a href="http://mail.office365.com/"> Send us an email </a></div>
-					<div class="menuitem"><a href="http://www.ashesi.edu.gh/student-life-5/health-and-wellbeing.html">
-						More info</a></div>
-					<div class="menuitem"><a href="http://www.who.int/topics/en/"> Health News</a></div>
-				</td>
+				
 				<td id="content">
-					<div id="divPageMenu">
-						<span class="menuitem1" >Add New Patient Record </span>		
-					</div>
-					<div id="divContent">
-					<!--User login form-->
-					 <form action="addPatientForm.php" method="GET" >
+						<div id="divPageMenu">
+							<span class="menuitem1" >Add New Patient</span>		
+						</div>
+						
+				
+        
+		<div id="divContent">
+            <br/>
+            
+            <table>
+            <tr>
+                <td>
+            <form action="addPatientForm.php" method="GET" >
 
                     <label for="patientID">Patient ID:</label> <input type="text" name="patientID" /><br></br>
                     <label for="username">User Name:</label> <input type="text" name="username" /><br></br>
@@ -78,32 +90,40 @@
 
                         <br class="clear" /> <br />
                             <input type="submit" value="Add">
+                       
                 </form>	
-					
-				</td>
-			</tr>
-			
-			<tr>
+				 </table>  
+                    </div>       
+           
+
+<tr>
 				<td colspan="2" id="pagefooter">
 				<footer>
-						<?php echo '<a href="logout.php">logout </a>'; ?>
+
+					<div class="menuitem"><a href="http://mail.office365.com/"><font color = 'white'> Send us an email </font></a></div>
+					<div class="menuitem"><a href="http://www.ashesi.edu.gh/student-life-5/health-and-wellbeing.html"><font color = 'white'>
+						More Info</font></a></div>
+					<div class="menuitem"><a href="http://www.who.int/topics/en/"><font color = 'white'> Health News</font></a></div>
+			
+						<?php echo '<a href="logout.php">Logout </a>'; ?>
 						<p>©Ashesi University College. All rights reserved.</p>
 						<p>1 University Avenue, Berekuso; PMB CT 3, Cantonments, Accra, Ghana | Phone: +233.302.610.330</p>
 				 </footer>
 				</td>
 			</tr>	
-			
-		</table>
-	</body>
-</html>	
+							
+					
+				</table>
+			 </body>
 
-
+		</html>
 
                         
     <?php
     include_once("addPatient.php");
     
 	if(!isset($_REQUEST['patientID'])){
+        echo "No data inputed";
 		exit();		
 	}
     $obj= new addPatient();

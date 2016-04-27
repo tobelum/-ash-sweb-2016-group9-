@@ -30,11 +30,34 @@
     margin-left: 100px;
     text-align: center;
     font-size: 20px;
+	width: 1800px;
+	background-color: #993333;
+	height: 100px;
+	margin-left: -10px;
+	font-family: times;
+	text-align: center;
 }
 
+#pagefooter{
+	width: 400px;
+	height:100px;
+	background-color: #a6a6a6;
+	text-align: center;
+	clear:both;
+	padding: 10px;
+	color: white;
+	margin-top: 300px;
+}
+
+#divPageMenu{
+	font-family: times;
+	margin-left: 100px;
+	text-align: center;
+	font-size: 40px;
+}
 
 #divContent{
-    margin-left: 170px;
+	margin-left: 170px;
     width: 1000px; height: 400px; overflow: auto; padding: 50px;
     background-color:  #e7d3dc;
 }
@@ -95,6 +118,7 @@ li2 a:hover {
     background-color: #a6a6a6;
     cursor: hand;
 }
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -176,3 +200,4 @@ color: #993333;
 #txtbox{
     margin-bottom: 30px;
 }
+
