@@ -65,7 +65,7 @@ if (isset($_REQUEST['id'])) {
 		session_start();
 		$_SESSION['id'] = $_REQUEST['id'];
 		$_SESSION['name'] = $patientData['username'];
-		header("Location: newNurseAjax.php");
+		header("Location: addDiagnosisAjax.php");
 		}
 }
 
